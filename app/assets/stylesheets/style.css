@@ -1,16 +1,16 @@
 @font-face {
     font-family: Runaway;
-    src: url(../fonts/fonts/Runaway.otf);
+    src: url(/fonts/fonts/Runaway.otf);
 }
 
 @font-face {
     font-family: CaviarDreams;
-    src: url(../fonts/fonts/CAVIARDREAMS.ttf);
+    src: url(/fonts/fonts/CAVIARDREAMS.ttf);
 }
 
 @font-face {
     font-family: HaloHandletter;
-    src: url(../fonts/fonts/HaloHandletter.otf);
+    src: url(/fonts/fonts/HaloHandletter.otf);
 }
 
 body, html {
@@ -258,7 +258,7 @@ header .intro-text {
 	padding: 0 0 60px 0;
 }
 #restaurant-menu .section-title {
-	background: #444 url(menu-bg.jpg) center center no-repeat fixed;
+	background: #444 url(/img/menu-bg.jpg) center center no-repeat fixed;
 	background-size: cover;
 }
 #restaurant-menu .section-title h2 {
@@ -313,7 +313,7 @@ header .intro-text {
 	padding: 0 0 120px 0;
 }
 #portfolio .section-title {
-	background: #444 url(gallery-bg.jpg) center center no-repeat fixed;
+	background: #444 url(/img/gallery-bg.jpg) center center no-repeat fixed;
 	background-size: cover;
 	margin-bottom: 50px;
 }
@@ -433,7 +433,7 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #444 url(team-bg.jpg) center top no-repeat fixed;
+	background: #444 url(/img/team-bg.jpg) center top no-repeat fixed;
 	background-size: cover;
 }
 #team .overlay {
