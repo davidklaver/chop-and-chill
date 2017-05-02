@@ -191,7 +191,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background-image: url("<%= asset_path('intro-bg2.png') %>");
+	background: url(intro-bg2.jpg) no-repeat center center;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -258,7 +258,7 @@ header .intro-text {
 	padding: 0 0 60px 0;
 }
 #restaurant-menu .section-title {
-	background: #444 url(/assets/menu-bg.jpg) center center no-repeat fixed;
+	background: #444 url(menu-bg.jpg) center center no-repeat fixed;
 	background-size: cover;
 }
 #restaurant-menu .section-title h2 {
@@ -313,7 +313,7 @@ header .intro-text {
 	padding: 0 0 120px 0;
 }
 #portfolio .section-title {
-	background: #444 url(/assets/gallery-bg.jpg) center center no-repeat fixed;
+	background: #444 url(gallery-bg.jpg) center center no-repeat fixed;
 	background-size: cover;
 	margin-bottom: 50px;
 }
@@ -433,7 +433,7 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #444 url(/assets/team-bg.jpg) center top no-repeat fixed;
+	background: #444 url(team-bg.jpg) center top no-repeat fixed;
 	background-size: cover;
 }
 #team .overlay {
