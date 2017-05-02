@@ -1,16 +1,16 @@
 @font-face {
     font-family: Runaway;
-    src: url(/Runaway.otf);
+    src: url(/assets/fonts/Runaway.otf);
 }
 
 @font-face {
     font-family: CaviarDreams;
-    src: url(/CAVIARDREAMS.ttf);
+    src: url(/assets/fonts/CAVIARDREAMS.ttf);
 }
 
 @font-face {
     font-family: HaloHandletter;
-    src: url(/HaloHandletter.otf);
+    src: url(/assets/fonts/HaloHandletter.otf);
 }
 
 body, html {
