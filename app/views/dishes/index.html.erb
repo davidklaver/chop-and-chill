@@ -1,0 +1,6 @@
+<h1>Here are all the dishes:</h1>
+<% @dishes.each do |dish| %>
+	<p>Name: <%= dish.name %></p>
+	<p>Description: <%= dish.description %></p>
+	<p>Price: <%= dish.price %></p>
+<% end %>
