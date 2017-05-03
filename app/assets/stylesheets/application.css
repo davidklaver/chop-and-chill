@@ -16,15 +16,15 @@
 
  @font-face {
     font-family: "Runaway";
-    src: url('<%= asset_path("Runaway.otf") %>');
+    src: font-url('<%= asset_path("Runaway.otf") %>');
 }
 
 @font-face {
     font-family: "CaviarDreams";
-    src: url('/assets/CAVIARDREAMS.ttf') format('truetype');
+    src: font-url('/assets/CAVIARDREAMS.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "HaloHandletter";
-    src: url('<%= asset_path("HaloHandletter.otf") %>');
+    src: font-url('<%= asset_path("HaloHandletter.otf") %>');
 }
