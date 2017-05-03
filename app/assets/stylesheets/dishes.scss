@@ -1,3 +1,23 @@
 // Place all the styles related to the Dishes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #009f34;
+$blue: #292d45;
+
+#dishesContainer {
+	margin-top: 100px;
+
+	h1 {
+		text-align: center;
+		color: $green;
+	}
+
+	p {
+		color: $blue;
+	}
+
+	.price {
+		float: right;
+	}
+}
