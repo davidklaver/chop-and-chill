@@ -6,7 +6,8 @@ $green: #009f34;
 $blue: #292d45;
 
 #dishesContainer {
-	margin-top: 100px;
+	width: 80%;
+	margin: 20vh 0 0 10%;
 
 	h1 {
 		text-align: center;
@@ -15,6 +16,13 @@ $blue: #292d45;
 
 	p {
 		color: $blue;
+
+	}
+
+	.underline {
+		border-bottom: dotted 2px grey;
+		font-size: 24px;
+		color: $green;
 	}
 
 	.price {

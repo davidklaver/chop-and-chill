@@ -1,7 +1,7 @@
 <div id="dishesContainer">
 	<h1>Here are all the dishes:</h1>
 	<% @dishes.each do |dish| %>
-		<p><%= dish.name %><span class=price><%= dish.price %></span></p>
+		<p class="underline"><%= dish.name %><span class=price><%= dish.price %></span></p>
 		<p><%= dish.description %></p>
 	<% end %>
 </div>

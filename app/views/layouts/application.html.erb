@@ -20,7 +20,7 @@
 
 <!-- Stylesheet
     ================================================== -->
-<link rel="stylesheet" type="text/css"  href="/css/style.css">
+<!-- <link rel="stylesheet" type="text/css"  href="/css/style.css"> -->
 <link rel="stylesheet" type="text/css" href="/css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css" href="/css/nivo-lightbox/default.css">
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
@@ -39,6 +39,17 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<style type="text/css">
+  <% if @current_page == "dishes" %>
+#menu.navbar-default {
+  background-color: #292d45;
+  border-color: rgba(231, 231, 231, 0);
+}
+  <% end %>
+</style>
+
+
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <!-- Navigation
@@ -60,6 +71,9 @@
         <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="#" class="page-scroll">Order Online</a></li>
         <li><a href="#team" class="page-scroll">Contact</a></li>
+        <% if @current_page == "dishes" %>
+          <li><a href="#" class="page-scroll">Cart</a></li>
+        <% end %>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -105,23 +119,6 @@
     </div>
   </div>
 </div>
-
-<script>
-  function initMap() {
-    var store = {lat: 41.1067899, lng: -74.0644022};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: store
-    });
-    var marker = new google.maps.Marker({
-      position: store,
-      map: map
-    });
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRldDEOdDHkk3uU7bwN9FvfSPF6g7P7LQ&callback=initMap">
-</script>
 
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
 <script type="text/javascript" src="js/bootstrap.js"></script> 

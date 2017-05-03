@@ -385,3 +385,20 @@
   </div>
 
 </div>
+
+<script>
+  function initMap() {
+    var store = {lat: 41.1067899, lng: -74.0644022};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: store
+    });
+    var marker = new google.maps.Marker({
+      position: store,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRldDEOdDHkk3uU7bwN9FvfSPF6g7P7LQ&callback=initMap">
+</script>
