@@ -5,13 +5,34 @@
 $green: #009f34;
 $blue: #292d45;
 
-#dishesContainer {
+body {
+	background-color: #eee;
+}
+
+#dishesContainer, #dishContainer {
 	width: 80%;
 	margin: 20vh 0 0 10%;
 
 	h1 {
 		text-align: center;
-		color: $green;
+		color: $blue;
+		font-size: 54px;
+/*		text-decoration: underline;
+*/		/*font-family: "Raleway";*/
+	}
+
+	h2 {
+		text-align: center;
+		text-decoration: underline;
+	}
+
+	.row {
+		padding-top: 25px;
+	}
+
+	.row > div {
+		/*border: 1px solid red;*/
+		padding: 20px 40px;
 	}
 
 	p {
@@ -27,5 +48,18 @@ $blue: #292d45;
 
 	.price {
 		float: right;
+	}
+}
+
+/*_________________New Dish Page Styles_________________*/
+
+#newDishContainer {
+	width: 80%;
+	margin: 20vh 0 0 10%;
+
+	h1 {
+		text-align: center;
+		color: $blue;
+		font-size: 54px;
 	}
 }

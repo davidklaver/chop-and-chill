@@ -1,7 +1,35 @@
-<div id="dishesContainer">
-	<h1>Here are all the dishes:</h1>
-	<% @dishes.each do |dish| %>
-		<p class="underline"><%= dish.name %><span class=price><%= dish.price %></span></p>
-		<p><%= dish.description %></p>
-	<% end %>
+<div class="container" id="dishesContainer">
+	<h1>Please Choose a Dish to Order:</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h2>Sundaes</h2>
+      <% @sundaes.each do |dish| %>
+				<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
+				<p><%= dish.description %></p>
+			<% end %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h2>Grillers</h2>
+      <% @dishes.each do |dish| %>
+				<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
+				<p><%= dish.description %></p>
+			<% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 ">
+      <h2>Salads</h2>
+      <% @dishes.each do |dish| %>
+				<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
+				<p><%= dish.description %></p>
+			<% end %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h2>Drinks</h2>
+      <% @dishes.each do |dish| %>
+				<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
+				<p><%= dish.description %></p>
+			<% end %>
+    </div>
+  </div> <!-- end dishesContainer -->
 </div>
