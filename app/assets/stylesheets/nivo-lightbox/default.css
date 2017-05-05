@@ -84,19 +84,19 @@
        (min-resolution: 1.3dppx) {
 
 	.nivo-lightbox-theme-default .nivo-lightbox-content.nivo-lightbox-loading { 
-		background-image: url(loading@2x.gif); 
+		background-image: url(/images/loading@2x.gif); 
 		background-size: 32px 32px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-prev { 
-		background-image: url(prev@2x.png); 
+		background-image: url(/images/prev@2x.png); 
 		background-size: 48px 48px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-next { 
-		background-image: url(next@2x.png); 
+		background-image: url(/images/next@2x.png); 
 		background-size: 48px 48px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-close { 
-		background-image: url(close@2x.png); 
+		background-image: url(/images/close@2x.png); 
 		background-size: 16px 16px;
 	}
 	
