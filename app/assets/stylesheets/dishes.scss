@@ -9,21 +9,39 @@ body {
 	background-color: #eee;
 }
 
-#dishesContainer, #dishContainer {
-	width: 80%;
-	margin: 20vh 0 0 10%;
+.addToCartBtn {
+	background-color: $blue;
+	color: white;
+	/*width: 150px;
+	margin: auto;*/
+}
 
-	h1 {
+.addToCartBtn:hover {
+	background-color: $green;
+	color: white;
+}
+
+.dishesH1 {
 		text-align: center;
 		color: $blue;
 		font-size: 54px;
-/*		text-decoration: underline;
-*/		/*font-family: "Raleway";*/
+		margin: 150px 0 auto;
+		/*	text-decoration: underline; */
+		font-family: "Chelsea Market";
 	}
+
+.dishesContainer, #showDishContainer {
+	width: 80%;
+	margin: 1% 0 0 10%;
+
 
 	h2 {
 		text-align: center;
 		text-decoration: underline;
+	}
+
+	h3 {
+		text-align: center;
 	}
 
 	.row {
@@ -50,6 +68,56 @@ body {
 		float: right;
 	}
 }
+
+@media(max-width: 767px) {
+
+	.dishesH1 {
+			font-size: 36px;
+		}
+
+	.dishesContainer {
+		width: 90%;
+		margin-left: 5%;
+
+		
+		.row > div {
+			/*border: 1px solid red;*/
+			padding: 20px 0;
+		}
+	}
+}
+
+.dishContainer {
+	margin-bottom: 40px;	
+}
+
+
+.dishContainer button {
+		text-align: center;
+	}
+
+
+/*_________________Dish Show Page Styles_________________*/
+
+#showDishContainer {
+	width: 80%;
+	margin: 150px auto;
+	text-align: center;
+
+	h2 {
+		color: $green;
+	}
+}
+
+@media(min-width: 768px) {
+	#showDishContainer {
+		width: 40%;
+	}
+}
+
+
+
+
 
 /*_________________New Dish Page Styles_________________*/
 

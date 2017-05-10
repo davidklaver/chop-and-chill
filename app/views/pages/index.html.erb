@@ -7,7 +7,7 @@
             <img src="/img/logo-trans.png" class="logo">
             <br>
             <!-- <p>Restaurant / Coffee / Pub</p> -->
-            <a href="#" class="btn btn-custom btn-lg page-scroll">Order Online</a> </div>
+            <a href="/dishes" class="btn btn-custom btn-lg page-scroll">Order Online</a> </div>
         </div>
       </div>
     </div>
@@ -41,119 +41,26 @@
     <div class="overlay">
       <h2>Menu</h2>
       <!-- <hr> -->
-      <p>Click <a href="#">here</a> to order online</p>
+      <p>Click <a href="/dishes">here</a> to order online</p>
     </div>
   </div>
-  <div class="container">
+  <div class="container dishesContainer">
+    <!-- <h1>Please Choose a Dish to Order:</h1> -->
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="menu-section">
-          <h2 class="menu-section-title">Sundaes</h2>
-          <hr>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $35 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
+    <% @categories.each do |category| %>
+      <div class="col-xs-12 col-md-6">
+        <h2><%= category.name %></h2>
+        <% category.dishes.each do |dish| %>
+          <div class="dishContainer">
+            <p class="underline"><%= dish.name %><span class=price><%= dish.price %></span></p>
+            <p><%= dish.description %></p>
+            <!-- <button class="btn addToCartBtn">Add to Cart</button> -->
           </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-        </div>
+        <% end %>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="menu-section">
-          <h2 class="menu-section-title">Salads</h2>
-          <hr>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $45 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-        </div>
-      </div>
+    <% end %>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="menu-section">
-          <h2 class="menu-section-title">Grillers</h2>
-          <hr>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $45 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $350 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with pourawmazingsauce., and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="menu-section">
-          <h2 class="menu-section-title">Drinks</h2>
-          <hr>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $35 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-name"> Delicious Dish </div>
-            <div class="menu-item-price"> $30 </div>
-            <div class="menu-item-description"> A sumptuous dish, topped with our amazing sauce, and sprinkled with a wonderfully fantastic topping. </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </div> <!-- end dishesContainer -->
 </div>
 <!-- Portfolio Section -->
 <div id="portfolio">

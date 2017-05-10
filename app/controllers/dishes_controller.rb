@@ -1,11 +1,15 @@
 class DishesController < ApplicationController
+	before_action :authenticate_admin!, only: [:create, :update, :destroy, :new, :edit]
+	# before_action :authenticate_user!
 	before_filter :set_current_page
 	def set_current_page
 	  @current_page = "dishes"
 	end
+
 	def index
 		@dishes = Dish.all
-		@sundaes = Dish.where(category: "Sundaes")
+		@categories = Category.all
+		@subcategories = Subcategory.all
 	end
 
 	def show
@@ -17,10 +21,10 @@ class DishesController < ApplicationController
 	end
 
 	def create
-		@dish = Dish.new(name: params[:name], description: params[:description], price: params[:price], category: params[:category])
+		@dish = Dish.new(name: params[:name], description: params[:description], price: params[:price].to_i, category_id: params[:category_id].to_i)
 		
 		if @dish.save
-			# flash[:success] = "You added a new product!"
+			flash[:success] = "You added a new product!"
 			redirect_to "/dishes/#{@dish.id}"
 		else
 			render 'new.html.erb'

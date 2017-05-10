@@ -538,7 +538,7 @@ label {
 	font-size: 12px;
 	font-weight: 400;
 	font-family: 'Open Sans', sans-serif;
-	float: left;
+/*	float: left;*/
 }
 #contact .form-control {
 	display: block;
@@ -668,3 +668,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
           margin-left: 2%;
         }
        }
+
+.alert {
+	position: absolute;
+	z-index: 100;
+}

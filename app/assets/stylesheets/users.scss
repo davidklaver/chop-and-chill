@@ -1,0 +1,45 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$green: #009f34;
+$blue: #292d45;
+
+.signupContainer {
+	
+	
+	h1 {
+		font-size: 72px;
+		text-align: right;
+		margin: 150px 0 50px 0;
+		color: $blue;
+	}
+
+	.formDiv {
+		width: 450px;
+		margin: 50px 20%;
+	}
+
+	.fieldDiv {
+		text-align: right;
+		font-size: 18px;
+	}
+
+	 label {
+		font-size: 18px;
+		font-family: "Chelsea Market";
+		color: $green;
+	}
+
+	input:not(:last-child) {
+		width: 300px;
+	}
+
+	.submitBtn {
+		width: 100px;
+		margin: 20px 60px;
+		float: right;
+	}
+
+}
