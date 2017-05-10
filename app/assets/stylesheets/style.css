@@ -671,5 +671,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 .alert {
 	position: absolute;
-	z-index: 100;
+	top: 80px;
+	text-align: center;
+	width: 50%;
+	margin-left: 25%;
+	z-index: 10000;
 }

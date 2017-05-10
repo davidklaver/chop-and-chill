@@ -1,0 +1,4 @@
+<div class="container newDishContainer">
+	<h1>Update your dish here:</h1>
+	<%= render 'form.html.erb', route: "/dishes/#{@dish.id}", form_method: :patch, message: "Update Dish" %>
+</div>

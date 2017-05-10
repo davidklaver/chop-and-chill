@@ -7,13 +7,13 @@
 	</tr>
 	<% @order.carted_dishes.each do |carted_dish| %>
 	<tr>
-		<td><a href="/dishes/<%= carted_dish.dish_id %>"><%= carted_dish.dish.name %></a></td>
+		<td><%= carted_dish.dish.name %></td>
 		<td><%= carted_dish.quantity %></td>
 <% end %>
 </table>
 <p>Order ID: <%= @order.id %></p>
-<p>Subtotal: <%= @order.subtotal %></p>
-<p>Tax: <%= @order.tax %></p>
-<p>Total: <%= @order.total %></p>
+<p>Subtotal: <%= number_to_currency(@order.subtotal) %></p>
+<p>Tax: <%= number_to_currency(@order.tax) %></p>
+<p>Total: <%= number_to_currency(@order.total) %></p>
 <p>An email confirmation will one day be sent to: <%= @order.user.email %></p>
 <p>Purchased on: <%= @order.pretty_time %></p>

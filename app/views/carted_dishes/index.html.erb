@@ -1,32 +1,33 @@
 <h1>This is your cart:</h1>
-
-<table class="cartTable">
-	<tr>
-		<th>Item</th>
-		<th>Quantity</th>
-		<th>Price</th>
-		<th>Remove dish</th>
-	</tr>
-	<% @carted_dishes.each do |carted_dish| %>
+<div class="container cartContainer">
+	<table class="cartTable">
 		<tr>
-			<td><a href="/dishes/<%= carted_dish.dish_id %>"><%= carted_dish.dish.name %></a></td>
-			<td><%= carted_dish.quantity %></td>
-			<td><%= number_to_currency(carted_dish.dish_subtotal) %></td>
-			<td><%= button_to("Remove Item", "/carted_dishes/#{carted_dish.id}", method: :delete) %></td>
+			<th>Item</th>
+			<th>Quantity</th>
+			<th>Price</th>
+			<th>Remove dish</th>
 		</tr>
+		<% @carted_dishes.each do |carted_dish| %>
+			<tr>
+				<td><a href="/dishes/<%= carted_dish.dish_id %>"><%= carted_dish.dish.name %></a></td>
+				<td><%= carted_dish.quantity %></td>
+				<td><%= number_to_currency(carted_dish.dish_subtotal) %></td>
+				<td><%= button_to("Remove Item", "/carted_dishes/#{carted_dish.id}", method: :delete) %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>Subtotal: <%= number_to_currency(@subtotal) %></td>
+		</tr>
+		<tr>
+			<td>Tax: <%= number_to_currency(@tax) %></td>
+		</tr>
+		<tr>
+			<td>Total: <%= number_to_currency(@total) %></td>
+		</tr>
+	</table>
+	<%= form_tag "/orders", method: :post do %>
+	<%= submit_tag "Place Order", class: "btn btn-primary" %>
 	<% end %>
-	<tr>
-		<td>Subtotal: <%= number_to_currency(@subtotal) %></td>
-	</tr>
-	<tr>
-		<td>Tax: <%= number_to_currency(@tax) %></td>
-	</tr>
-	<tr>
-		<td>Total: <%= number_to_currency(@total) %></td>
-	</tr>
-</table>
-<%= form_tag "/orders", method: :post do %>
-<%= submit_tag "Place Order", class: "btn btn-primary" %>
-<% end %>
-<br>
-<a href="/dishes"><button type="button" class="btn btn-success">Back To Ordering Menu</button></a>
+	<br>
+	<a href="/dishes"><button type="button" class="btn btn-success">Back To Ordering Menu</button></a>
+</div>

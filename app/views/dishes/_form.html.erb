@@ -1,12 +1,22 @@
-
+<% if @dish.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+ 
+    <ul class="errorsList">
+    <% @dish.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_tag route, method: form_method do %>
 	<p><%= label_tag :name %>
 	<%= text_field_tag :name, @dish.name %></p>
 	<p><%= label_tag :price %>
 	<%= text_field_tag :price, @dish.price %></p>
-	<p><%= label_tag :description %>
-	<%= text_field_tag :description, @dish.description %></p>
 	<p><%= label_tag :category_id %>
-	<%= text_field_tag :category_id, @dish.category_id %></p>
-	<%= submit_tag message %>
+	<%= collection_select :dish, :category_id, Category.all, :id, :name, :selected => @dish.category_id  %></p>
+	<p><%= label_tag :description %>
+	<%= text_area_tag :description, @dish.description %></p>
+	<%= submit_tag message, :class => "btn addToCartBtn" %>
 <% end %>

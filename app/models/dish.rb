@@ -1,7 +1,7 @@
 class Dish < ApplicationRecord
 	has_many :ingredients
 	belongs_to :category
-	belongs_to :subcategory
+	belongs_to :subcategory, optional: true
 	has_many :carted_dishes
 	has_many :users, through: :carted_dishes
 

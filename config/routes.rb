@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'dishes/new' => 'dishes#new'
   post '/dishes' => 'dishes#create'
   get '/dishes/:id' => 'dishes#show'
+  get '/dishes/:id/edit' => 'dishes#edit'
+  patch '/dishes/:id' => 'dishes#update'
+  delete '/dishes/:id' => 'dishes#destroy'
 
 	get '/signup' => 'users#new'
 	post '/users' => 'users#create'

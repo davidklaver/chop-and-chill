@@ -21,13 +21,39 @@ class DishesController < ApplicationController
 	end
 
 	def create
-		@dish = Dish.new(name: params[:name], description: params[:description], price: params[:price].to_i, category_id: params[:category_id].to_i)
+		@dish = Dish.new(name: params[:name], description: params[:description], price: params[:price], category_id: params[:dish][:category_id])
 		
 		if @dish.save
-			flash[:success] = "You added a new product!"
+			flash[:success] = "You added a new dish!"
 			redirect_to "/dishes/#{@dish.id}"
 		else
 			render 'new.html.erb'
 		end
+	end
+
+	def edit
+		@dish = Dish.find_by(id: params["id"])
+	end
+
+	def update
+		@dish = Dish.find_by(id: params["id"])
+		if @dish.update(
+			name: params["name"],
+			price: params["price"],
+			description: params["description"],
+			category_id: params["dish"]["category_id"]
+		)
+			flash[:success] = "This dish has been updated."
+			redirect_to "/dishes/#{@dish.id}"
+		else
+			render 'edit.html.erb'
+		end
+	end
+
+	def destroy
+		dish = Dish.find_by(id: params["id"])
+		dish.destroy
+		flash[:danger] = "You deleted a dish!"
+		redirect_to "/dishes"
 	end
 end
