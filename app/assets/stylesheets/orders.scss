@@ -5,7 +5,40 @@
 $green: #009f34;
 $blue: #292d45;
 
-.orderInfoDiv {
+.orderContainer {
+	margin-top: 150px;
 	text-align: center;
-	color: $blue;
+	color: white;
+
+	h1 {
+		/*color: $green;*/
+		font-size: 64px;
+	}
+
+	.subHeading {
+		font-size: 22px;
+	}
 }
+
+.orderInfoDiv {
+	width: 80%;
+	margin: 50px 10%;
+
+	p {
+		font-size: 24px;
+	}
+}
+
+.orderTable {
+	text-align: center;
+	max-width: 800px;
+	margin: auto;
+	font-size: 24px;
+
+	td {
+		/*color: $green;*/
+		/*font-family: 'Poiret One';
+		font-weight: bold;*/
+	}
+}
+

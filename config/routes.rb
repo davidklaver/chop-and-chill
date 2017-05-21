@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/' => 'pages#index'
+  get '/pages' => 'pages#index'
 
   get '/dishes' => 'dishes#index'
   get 'dishes/new' => 'dishes#new'
@@ -9,6 +10,9 @@ Rails.application.routes.draw do
   get '/dishes/:id/edit' => 'dishes#edit'
   patch '/dishes/:id' => 'dishes#update'
   delete '/dishes/:id' => 'dishes#destroy'
+
+  get '/categories' => 'categories#index'
+  get '/categories/:id' => 'categories#show'
 
 	get '/signup' => 'users#new'
 	post '/users' => 'users#create'

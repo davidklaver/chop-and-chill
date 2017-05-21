@@ -8,23 +8,55 @@ $blue: #292d45;
 
 .signupContainer {
 	
-	
 	h1 {
-		font-size: 72px;
-		text-align: right;
-		margin: 150px 0 50px 0;
+		font-size: 80px;
+		text-align: center;
+		margin: 150px 20px 15px 0;
 		color: $blue;
 	}
 
+	p {
+		/*color: $blue;*/
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
 	.formDiv {
-		width: 450px;
-		margin: 50px 20%;
+		width: 65%;
+		max-width: 600px;
+		margin: 50px auto;
 	}
 
 	.fieldDiv {
 		text-align: right;
 		font-size: 18px;
+
+		input {
+			width: 250px;
+			margin-right: 50px;
+		}
 	}
+
+
+	.submitBtn {
+		width: 100px;
+		margin: 20px 260px;
+		/*float: right;*/
+	}
+
+	@media(max-width: 767px) {
+			input {
+				display: block;
+				margin: auto;
+			}
+			.fieldDiv {
+				text-align: center;
+			}
+
+			.submitBtn {
+				margin: 20px auto;
+			}
+		}
 
 	 label {
 		font-size: 18px;
@@ -35,11 +67,4 @@ $blue: #292d45;
 	input:not(:last-child) {
 		width: 300px;
 	}
-
-	.submitBtn {
-		width: 100px;
-		margin: 20px 60px;
-		float: right;
-	}
-
 }

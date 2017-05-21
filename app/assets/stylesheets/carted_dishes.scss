@@ -8,23 +8,71 @@ $blue: #292d45;
 .cartContainer {
 	margin: 150px auto;
 	text-align: center;
-	color: $green;
+	color: white;
+	/*background-color: $green;*/
 
 	h1 {
 		font-size: 54px;
+		font-family: 'Runaway';
+}
+
+@media(min-width: 768px) {
+	h1 {
+		font-size: 80px;
+	}
+}
+
+	.total {
+		font-size: 36px;
+		margin-bottom: 30px;
+		color: $green;
 	}
 }
 
 .cartTable {
-	width: 80%;
-	margin: 20px 10%;
+	width: 90%;
+	margin: 20px 5%;
 	font-size: 16px;
-	color: $blue;
+	color: $green;
 }
 
-.cartTable th, .cartTable tr, .cartTable td {
-	border: 2px solid #213051;
+.cartedDishName {
+	font-family: 'Runaway';
+	font-size: 24px;
+}
+
+@media(max-width: 767px) {
+	.cartTable form {
+		margin-top: 5px;
+	}
+}
+
+@media(min-width: 768px) {
+
+	.cartedDishName {
+	font-size: 36px;
+}
+
+	.cartTable form {
+		display: inline-block;
+		float: right;
+	}
+}
+		
+
+ .cartTable th {
+ 	padding: 4px;
+ }
+
+ .cartTable tr:not(:first-of-type)  {
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
 	padding: 4px;
+}
+
+.cartTable td {
+	padding: 15px;
+	font-size: 24px;
 }
 
 .cartTable th {
@@ -32,3 +80,21 @@ $blue: #292d45;
 	font-size: 22px;
   text-align: center;
 }
+
+/*#placeOrderBtn {
+  background-color: $green;
+}*/
+
+
+
+.removeBtn {
+	background-color: $blue;
+	/*display: inline !important;*/
+}
+
+@media(min-width: 768px) {
+	.removeBtn {
+		margin-top: 10px;
+	}
+}
+

@@ -26,7 +26,8 @@ class CartedDishesController < ApplicationController
 				quantity: quantity
 			)
 		if @carted_dish.save
-			redirect_to "/carted_dishes"
+			flash[:success] = "You have added #{@carted_dish.dish.name} to your cart."
+			redirect_to "/dishes"
 		else
 			@dish = Dish.find(params["dish_id"])
 			@supplier = @dish.supplier

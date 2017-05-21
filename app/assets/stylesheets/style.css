@@ -13,6 +13,12 @@
     src: url(/fonts/fonts/HaloHandletter.otf);
 }
 */
+
+
+ * {
+	font-family: 'Chelsea Market';
+}
+
 body, html {
 	font-family: 'Raleway', sans-serif;
 	text-rendering: optimizeLegibility !important;
@@ -57,7 +63,7 @@ a {
 }
 a:hover, a:focus {
 	text-decoration: none;
-	color: #222;
+	color: #fff;
 }
 ul, ol {
 	list-style: none;
@@ -116,7 +122,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 
 #menu a.navbar-brand {
-	font-family: "Poiret One";
+	font-family: "Runaway";
 	font-size: 32px;
 	color: #009f34;
 	font-weight: 700;
@@ -651,10 +657,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	}
 }
 
-* {
-	font-family: 'Chelsea Market';
-}
-
 #map {
         margin: 20px 0;
         height: 400px;
@@ -677,3 +679,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	margin-left: 25%;
 	z-index: 10000;
 }
+
+/*.type a {
+	border-radius: 5px;
+}*/
+
+#about,/* #restaurant-menu,*/ #portfolio, #contact {
+	background-color: #eee;
+}
+

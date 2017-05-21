@@ -1,0 +1,34 @@
+<header class="categoryHeader <%= @category.name %>Header">
+	<div class="headerOverlay"></div>
+	<h1 class="dishesH1"><%= @category.name %></h1>
+</header>
+<div class="container dishesContainer">
+	<div class="row">
+		<% if @category.subcategories.any? %>
+			<% @category.subcategories.each do |subcategory| %>
+				<div class="col-xs-12 col-md-6">
+					<h3><%= subcategory.name %></h3>
+					<% subcategory.dishes.order(:price).each do |dish| %>
+						<div class="dishContainer">
+							<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= number_to_currency(dish.price) %></span></p>
+							<p class="dishDescription"><%= dish.description %></p>	
+						</div><!-- end dishContainer -->
+					<% end %><!-- end subcategory.dishes.order(:price).each -->
+				</div>
+			<% end %><!-- end subcategories.each -->
+		<% else %> <!-- if there are no subcategories -->
+			<!-- Create two columns of all dishes in category: -->
+			<% halves = @category.dishes.count/2 %>
+			<% @category.dishes.order(:price).each_slice(halves) do |half| %>
+				<div class="col-xs-12 col-md-6">
+					<% half.each do |dish| %>
+						<div class="dishContainer">
+							<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= number_to_currency(dish.price) %></span></p>
+							<p class="dishDescription"><%= dish.description %></p>
+						</div><!-- end dishContainer -->
+					<% end %><!-- end half.each -->
+				</div> <!-- end column -->
+			<% end %> <!-- end halves.each -->
+		<% end %> <!-- end if -->
+	</div><!-- end row -->
+</div> <!-- end dishesContainer -->

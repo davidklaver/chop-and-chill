@@ -112,7 +112,7 @@ function init() {
     else if (scrollHeight > windowHeight &&
             (body.offsetHeight <= windowHeight || 
              html.offsetHeight <= windowHeight)) {
-
+        
         html.style.height = 'auto';
         setTimeout(refresh, 10);
 

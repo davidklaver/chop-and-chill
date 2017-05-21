@@ -1,5 +1,7 @@
-<h1 class="dishesH1">Please Choose a Dish to Order:</h1>
+
 <div class="container dishesContainer">
+	<h1 class="dishesH1">Menu</h1>
+	<h3>Click on a dish to order</h3>
   <div class="row">
 	  <% @categories.each do |category| %>
 		    <div class="col-xs-12 col-md-6">
@@ -10,7 +12,7 @@
 		     			<% subcategory.dishes.order(:price).each do |dish| %>
 		      			<div class="dishContainer">
 									<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
-									<p><%= dish.description %></p>	
+									<p class="dishDescription"><%= dish.description %></p>	
 								</div><!-- end dishContainer -->
 							<% end %><!-- end subcategory.dishes.order(:price).each -->
 						<% end %><!-- end subcategories.each -->
@@ -18,7 +20,7 @@
 						<% category.dishes.order(:price).each do |dish| %>
 							<div class="dishContainer">
 								<p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= dish.price %></span></p>
-								<p><%= dish.description %></p>
+								<p class="dishDescription"><%= dish.description %></p>
 							</div><!-- end dishContainer -->
 						<% end %><!-- end category.dishes.order(:price).each -->
 		  		<% end %> <!-- end if -->
@@ -26,5 +28,3 @@
 		<% end %> <!-- end @categories.each -->
   </div><!-- end row -->
 </div> <!-- end dishesContainer -->
-
-<!-- <button class="btn addToCartBtn">Add to Cart</button> -->

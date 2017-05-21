@@ -1,0 +1,11 @@
+
+<div class="container categoriesContainer">
+	<h1>Please choose a category:</h1>
+	<% @categories.each do |category| %>
+		<a href="/categories/<%= category.id %>">
+			<button class="categoryBtn" id="<%= category.name %>CategoryBtn">
+				<p><%= category.name %></p>
+			</button>
+		</a>
+	<% end %>
+</div>
