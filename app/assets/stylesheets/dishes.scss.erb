@@ -88,15 +88,19 @@ body {
 	width: 90%;
 	margin: 1% 0 0 5%;
 
-	h2 {
+	h2, h3 {
 		color: white;
 		text-align: center;
 		text-decoration: underline;
 		font-family: 'Runaway';
 	}
 
+	h2 {
+		font-size: 48px;
+	}
+
 	h3 {
-		text-align: center;
+		margin-bottom: 20px;
 	}
 
 	.row {
@@ -104,14 +108,8 @@ body {
 	}
 
 	.row > div {
-		/*border: 1px solid red;*/
 		padding: 20px 40px;
 	}
-
-/*	p {
-		color: $blue;
-
-	}*/
 
 	.underline {
 		border-bottom: dotted 2px grey;
@@ -125,6 +123,8 @@ body {
 
 	.price {
 		float: right;
+		font-family: 'HaloHandletter';
+		font-weight: bold;
 	}
 }
 
@@ -142,6 +142,10 @@ body {
 		.row > div {
 			/*border: 1px solid red;*/
 			padding: 20px 0;
+		}
+
+		.underline {
+			font-size: 28px;
 		}
 	}
 }

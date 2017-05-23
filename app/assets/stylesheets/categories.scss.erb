@@ -6,7 +6,7 @@ $green: #009f34;
 $blue: #292d45;
 
 .categoriesContainer {
-	margin: 100px auto;
+	margin: 80px auto;
 	text-align: center;
 
 	h1 {
@@ -47,14 +47,20 @@ $blue: #292d45;
 
 
 @media(max-width: 479px) {
+	.categoriesContainer h1 {
+		font-size: 54px;
+		width: 90%;
+		margin-left: 5%;
+	}
+
 	.categoryBtn {
 		width: 94%;
-		height: 200px;
+		height: 120px;
 		margin: 10px 3%;
-
+		background-position: center;
 		p {
 			font-size: 60px;
-			padding-top: 55px;
+			padding-top: 25px;
 		}
 
 	}
@@ -63,25 +69,23 @@ $blue: #292d45;
 
 #SundaesCategoryBtn {
 	background-image: url("<%= asset_path('dish_pics/sundae.jpg') %>");
-	background-size: cover;
 }
 
 #SaladsCategoryBtn {
 	background-image: url("<%= asset_path('dish_pics/salad.jpg') %>");
-	background-size: cover;
 }
 
 #GrillersCategoryBtn {
 	background-image: url("<%= asset_path('dish_pics/griller.jpg') %>");
-	background-size: cover;
 }
 
 #DrinksCategoryBtn {
 	background-image: url("<%= asset_path('dish_pics/smoothies.jpg') %>");
-	background-size: cover;
 }
 
 /*_______________Category Show Page_______________*/
+
+/*
 
 .categoriesColumn {
 	.categoryBtn {
@@ -118,5 +122,5 @@ $blue: #292d45;
 
 	}
 
-}
+}*/
 

@@ -1,15 +1,17 @@
 <div id="showDishContainer">
-<h2><%= @dish.name %></h2>
-<p class="dishDescription"><%= @dish.description %></p>
-<h3>$<%= @dish.price %></h3>
-<!-- <button class="btn addToCartBtn">Add to Cart</button> -->
+	<h2><%= @dish.name %></h2>
+	<p class="dishDescription"><%= @dish.description %></p>
+	<h3>$<%= @dish.price %></h3>
+	<%= form_tag "/carted_dishes", method: :post do %>
+		<span>
+			<p><%= label_tag :quantity %>
+			<%= text_field_tag :quantity, 1, :class => "quantityField" %></p>	
+		</span>
+		<%= hidden_field_tag :dish_id, "#{@dish.id}" %>
+		<%= submit_tag "Add To Cart", class: "btn addToCartBtn" %>
+	<% end %>
+	
+	<a href="/categories/<%= @dish.category.id %>"><button class="btn addToCartBtn">Return To <%= @dish.category.name %></button></a>
 
-<%= form_tag "/carted_dishes", method: :post do %>
-	<span>
-		<p><%= label_tag :quantity %>
-		<%= text_field_tag :quantity, 1, :class => "quantityField" %></p>	
-	</span>
-	<%= hidden_field_tag :dish_id, "#{@dish.id}" %>
-	<%= submit_tag "Add To Cart", class: "btn addToCartBtn" %>
-<% end %>
+
 </div>

@@ -7,7 +7,7 @@ class CartedDishesController < ApplicationController
 		end
 		@subtotal = 0
 		@carted_dishes.each do |carted_dish|
-			@subtotal += carted_dish.dish_subtotal
+		@subtotal += carted_dish.dish_subtotal
 		end
 		@tax = @subtotal * 0.09
 		@total = @subtotal + @tax
@@ -27,7 +27,7 @@ class CartedDishesController < ApplicationController
 			)
 		if @carted_dish.save
 			flash[:success] = "You have added #{@carted_dish.dish.name} to your cart."
-			redirect_to "/dishes"
+			redirect_to "/categories"
 		else
 			@dish = Dish.find(params["dish_id"])
 			@supplier = @dish.supplier
