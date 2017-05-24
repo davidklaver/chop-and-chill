@@ -3,7 +3,7 @@ class CartedDishesController < ApplicationController
 	def index
 		@carted_dishes = current_user.carted_dishes.where("status = ?", "carted")
 		if @carted_dishes.count == 0
-			redirect_to "/dishes"
+			redirect_to "/categories"
 		end
 		@subtotal = 0
 		@carted_dishes.each do |carted_dish|

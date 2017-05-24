@@ -1,6 +1,5 @@
-// $(document).ready(function(){
-//     $('.navbar-toggle').toggle(
-//         function(){$('.navbar').css({"color": "red"});},
-//         function(){$('.navbar').css({"color": "blue"});}
-//     );
-// });
+$(document).ready(function(){
+    $("button.navbar-toggle").click(function(){
+    	$(".navbar").toggleClass("blueBackground", 200);
+		});
+});
