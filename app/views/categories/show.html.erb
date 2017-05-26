@@ -1,8 +1,10 @@
 <header class="categoryHeader <%= @category.name %>Header">
 	<div class="headerOverlay"></div>
 	<h1 class="dishesH1"><%= @category.name %></h1>
+	<h2 class="tagline"><%= @category.tagline %></h2>
 </header>
 <div class="container dishesContainer">
+<a href="/categories" class="categoriesLink">Return to Categories</a>
 	<div class="row">
 		<% if @category.subcategories.any? %>
 			<% @category.subcategories.each do |subcategory| %>

@@ -122,8 +122,8 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	text-transform: uppercase;
 	color: #ddd;
 	font-weight: 500;
-	font-size: 24px;
-	padding: 5px;
+	font-size: 22px;
+	padding: 5px 1px;
 	border: 2px solid transparent;
 	letter-spacing: 0.5px;
 	margin: 10px 15px 0 15px;
@@ -316,7 +316,7 @@ header .intro-text {
 	padding: 0 0 120px 0;
 }
 #portfolio .section-title {
-	background: #444 url(/img/gallery-bg.jpg) center center no-repeat fixed;
+	background: #444 url(gallery-bg.jpg) center center no-repeat fixed;
 	background-size: cover;
 	margin-bottom: 50px;
 }
@@ -436,7 +436,7 @@ ol.type li a:hover {
 /* Team Section */
 #team {
 	color: #fff;
-	background: #444 url(/img/team-bg.jpg) center top no-repeat fixed;
+	background: #444 url(team-bg.jpg) center top no-repeat fixed;
 	background-size: cover;
 }
 #team .overlay {
@@ -691,7 +691,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 }
 
 .blueBackground {
-	background-color: rgba(10,20,50,.6) !important;
+	background-color: rgba(10,20,50,.9) !important;
 	/*overflow-y: hidden;*/
 }
 

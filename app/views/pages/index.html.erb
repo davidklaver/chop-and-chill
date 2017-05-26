@@ -51,7 +51,7 @@
         <h2><%= category.name %></h2>
         <% if category.subcategories.any? %>
           <% category.subcategories.each do |subcategory| %>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-4">
               <h3><%= subcategory.name %></h3>
               <% subcategory.dishes.order(:price).each do |dish| %>
                 <div class="dishContainer">
@@ -65,7 +65,7 @@
           <!-- Create two columns of all dishes in category: -->
           <% halves = category.dishes.count/2 %>
           <% category.dishes.order(:price).each_slice(halves) do |half| %>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-5 col-md-offset-1">
               <% half.each do |dish| %>
                 <div class="dishContainer">
                   <p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= number_to_currency(dish.price) %></span></p>
@@ -362,6 +362,5 @@
     });
   }
 </script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRldDEOdDHkk3uU7bwN9FvfSPF6g7P7LQ&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRldDEOdDHkk3uU7bwN9FvfSPF6g7P7LQ&callback=initMap">
 </script>

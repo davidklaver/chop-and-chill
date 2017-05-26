@@ -25,19 +25,54 @@ body {
 	width: 100vw;
 	height: 350px;
 
-	h1 {
-		padding-top: 150px;
+	h1, .tagline {
+		margin-top: 20px;
 		position: relative;
 		z-index: 10;
+		text-align: center;
+		margin: auto;
+	}
+
+	h1 {
+		padding-top: 20px;
+		top: 110px;
+		width: 35%;
+		min-width: 500px;
+		text-align: center;
+		color: white;
+		font-size: 120px;
+		border: 5px solid $blue;
+		/*background-color: $green*/
+		/*border-bottom: none;*/
+	}
+
+	.tagline {
+		padding: 10px 10px 5px 10px;
+		font-size: 36px;
+		top: 85px;
+		color: white;
+		background-color: $blue;
+		/*border-radius: 5px;*/
+		width: 390px;
+		margin: auto;
 	}
 }
 
 @media(max-width: 767px) {
 	.headerOverlay, .categoryHeader {
-		height: 200px;
+		height: 220px;
 
 		h1 {
-			padding-top: 100px;
+			padding: 20px 0 10px 0;
+			top: 70px;
+			min-width: 300px;
+			font-size: 72px;
+		}
+
+		.tagline {
+			top: 50px;
+			width: 210px;
+			font-size: 20px;
 		}
 	}
 }
@@ -46,6 +81,15 @@ body {
 	background: url("<%= asset_path('dish_pics/sundaeBanner.jpg') %>");
 	background-size: cover;
 	background-position: top;
+}
+
+.categoriesLink {
+	display: block;
+	text-align: center;
+	font-size: 24px;
+	text-decoration: underline;
+	color: white;
+	font-family: 'Raleway';
 }
 
 .quantityField {
@@ -67,21 +111,11 @@ body {
 	color: white;
 }
 
-.dishesH1 {
-		text-align: center;
-		color: white;
-		font-size: 120px;
-		margin: auto;
-		/*	text-decoration: underline; */
-		font-family: "Runaway";
-	}
-
 .dishDescription {
 	color: white;
 	font-family: "Raleway";
 	font-weight: 600;
 	font-size: 18px;
-	/*width: 400px;*/
 }
 
 .dishesContainer, #showDishContainer {
@@ -131,10 +165,6 @@ body {
 
 @media(max-width: 767px) {
 
-	.dishesH1 {
-			font-size: 54px;
-		}
-
 	.dishesContainer {
 		width: 90%;
 		margin-left: 5%;
@@ -180,6 +210,12 @@ body {
 	h3 {
 		color: $green;
 		font-size: 36px;
+	}
+
+	.showDishPic {
+		width: 250px;
+		margin-bottom: 20px;
+		border: 10px solid $blue;
 	}
 
 	label {
