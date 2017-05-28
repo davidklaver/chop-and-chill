@@ -34,3 +34,19 @@
 		<% end %> <!-- end if -->
 	</div><!-- end row -->
 </div> <!-- end dishesContainer -->
+<% if @category.name == "Salads" %>
+	<div class="container dressingListDiv">
+		<h1>Dressing Options</h1>
+		<ul class="dressingList">
+			<div class="row">
+				<% @dressings.each_slice(4) do |four_dressings| %>
+						<div class="col-xs-12 col-md-3">
+							<% four_dressings.each do |dressing| %>
+								<li><%= dressing %></li>
+							<% end %>
+						</div>
+				<% end %>
+			</div>	
+		</ul>
+	</div>
+	<% end %>

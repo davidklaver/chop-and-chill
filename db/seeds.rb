@@ -68,15 +68,23 @@ CartedDish.create!([
   {status: "purchased", user_id: 2, dish_id: 12, quantity: 34, order_id: 24},
   {status: "purchased", user_id: 2, dish_id: 25, quantity: 1, order_id: 25},
   {status: "purchased", user_id: 2, dish_id: 1, quantity: 1, order_id: 25},
-  {status: "purchased", user_id: 2, dish_id: 18, quantity: 1, order_id: 25}
+  {status: "purchased", user_id: 2, dish_id: 18, quantity: 1, order_id: 25},
+  {status: "purchased", user_id: 2, dish_id: 18, quantity: 1, order_id: 26},
+  {status: "purchased", user_id: 2, dish_id: 33, quantity: 2, order_id: 26},
+  {status: "purchased", user_id: 2, dish_id: 37, quantity: 1, order_id: 26},
+  {status: "purchased", user_id: 2, dish_id: 1, quantity: 1, order_id: 27},
+  {status: "purchased", user_id: 2, dish_id: 1, quantity: 1, order_id: 27},
+  {status: "carted", user_id: 2, dish_id: 1, quantity: 1, order_id: nil}
 ])
 Category.create!([
-  {name: "Sundaes"},
-  {name: "Salads"},
-  {name: "Grillers"},
-  {name: "Drinks"}
+  {name: "Sundaes", tagline: "Bursting With Fun"},
+  {name: "Grillers", tagline: "Bursting With Taste"},
+  {name: "Drinks", tagline: "Bursting With Flavor"},
+  {name: "Salads", tagline: "Bursting With Goodness"}
 ])
 Dish.create!([
+  {name: "American Three Cheese", description: "•Mozzerella Cheese •Pepper Jack Cheese •Parmesan Cheese •Sliced Tomatoes •Fresh Sliced Mushrooms", price: "10.95", category_id: 3, subcategory_id: nil},
+  {name: "The Colorush", description: "•Vanilla Ice Cream •Vanilla ‘n’ Cherry Ice Cream •Whipped Cream •Fruit Loops •M&M’s •Raspberry Sauce •Cherry ", price: "6.95", category_id: 1, subcategory_id: nil},
   {name: "Hearts Of Palm Salad", description: "•Cubed Hearts of Palm •Avocado •Red Onions •Tomatoes •Persian Cucumbers •Mini Croutons •Baby Arugula •Iceberg Lettuce •Red Wine Vinaigrette", price: "11.95", category_id: 2, subcategory_id: nil},
   {name: "Exotic Euro Salad", description: "•Grilled Peaches •Cubed Mango •Craisins •Popped Quinoa •Glazed Almond Sticks •Baby Arugula •Romaine Lettuce •Raspberry Vinaigrette", price: "11.95", category_id: 2, subcategory_id: nil},
   {name: "Roasted Mushroom Salad", description: "•Portabella Mushrooms •Cremini Mushrooms •Red Onions •Fire Roasted Red Peppers •Nish Nosh Crackers •Romaine Lettuce •Balsamic Vinaigrette", price: "11.95", category_id: 2, subcategory_id: nil},
@@ -89,12 +97,10 @@ Dish.create!([
   {name: "Cookies 'n' Cream", description: nil, price: "6.95", category_id: 4, subcategory_id: 1},
   {name: "Wild Strawberry", description: nil, price: "6.95", category_id: 4, subcategory_id: 1},
   {name: "The Ultimate Chiller", description: nil, price: "7.95", category_id: 4, subcategory_id: 1},
-  {name: "American 3 Cheese", description: "•Mozzerella Cheese •Pepper Jack Cheese •Parmesan Cheese •Sliced Tomatoes •Fresh Sliced Mushrooms", price: "10.95", category_id: 3, subcategory_id: nil},
   {name: "Asian Salmon", description: "•Five Spice Salmon •Red Cabbage •Cucumbers •Julienned Carrots •Baby Spinach •Romaine Lettuce", price: "10.95", category_id: 3, subcategory_id: nil},
   {name: "Create Your Own Razzle", description: nil, price: "7.95", category_id: 4, subcategory_id: 1},
   {name: "Tuna Melt", description: "•Tuna •Tomatoes •Cucumbers •Red Pepper •Sour Pickles •Red Onions •Shredded Cheese •Hot Peppers (optional)", price: "10.95", category_id: 3, subcategory_id: nil},
   {name: "Double Chocolate", description: nil, price: "6.95", category_id: 4, subcategory_id: 1},
-  {name: "The Colorush", description: "•Vanilla Ice Cream •Vanilla ‘n’ Cherry Ice Cream •Whipped Cream •Fruit Loops •M&M’s•Raspberry Sauce •Cherry ", price: "6.95", category_id: 1, subcategory_id: nil},
   {name: "The Cookie Crumble", description: "•Crumbled Oreo Cookies •Vanilla Ice Cream •Cookies ‘n’ Cream Ice Cream •Whipped Cream •Hot Fudge •Mini Oreo Cookies •Cherry", price: "7.95", category_id: 1, subcategory_id: nil},
   {name: "Frapp In A Bowl", description: "•Tiramisu Ice Cream •Chocolate Ice Cream •Caramel Sauce •Coffee Sauce •Whipped Cream •Cappuccino Chips •Cherry", price: "9.95", category_id: 1, subcategory_id: nil},
   {name: "Sweet Potato Salad", description: "•Roasted Sweet Potato •Roasted Butternut Squash •Julienned Fennel •Granny Smith Apples •Glazed Almond Sticks •Baby Arugula •Maple Dijon Dressing", price: "11.95", category_id: 2, subcategory_id: nil},
@@ -146,7 +152,9 @@ Order.create!([
   {user_id: 2, subtotal: "24.85", tax: "2.24", total: "27.09"},
   {user_id: 2, subtotal: "6.95", tax: "0.63", total: "7.58"},
   {user_id: 2, subtotal: "336.1", tax: "30.25", total: "366.35"},
-  {user_id: 2, subtotal: "24.85", tax: "2.24", total: "27.09"}
+  {user_id: 2, subtotal: "24.85", tax: "2.24", total: "27.09"},
+  {user_id: 2, subtotal: "37.8", tax: "3.4", total: "41.2"},
+  {user_id: 2, subtotal: "13.9", tax: "1.25", total: "15.15"}
 ])
 Subcategory.create!([
   {name: "Mixed Chillers", category_id: 4},

@@ -12,6 +12,14 @@
 		<%= submit_tag "Add To Cart", class: "btn addToCartBtn" %>
 	<% end %>
 	
+	<% if @dish.category.name == "Salads" %>
+		<ul class="dressingList">
+			<% @dressings.each do |dressing| %>
+				<li><%= dressing %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
 	<a href="/categories/<%= @dish.category.id %>"><button class="btn addToCartBtn">Return To <%= @dish.category.name %></button></a>
 
 

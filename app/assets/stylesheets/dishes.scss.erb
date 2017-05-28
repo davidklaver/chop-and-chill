@@ -61,7 +61,8 @@ body {
 @media(max-width: 767px) {
 	.headerOverlay, .categoryHeader {
 		height: 220px;
-
+		background-size: cover;
+		background-position: top;
 		h1 {
 			padding: 20px 0 10px 0;
 			top: 70px;
@@ -71,7 +72,7 @@ body {
 
 		.tagline {
 			top: 50px;
-			width: 210px;
+			width: 225px;
 			font-size: 20px;
 		}
 	}
@@ -79,9 +80,15 @@ body {
 
 .SundaesHeader {
 	background: url("<%= asset_path('dish_pics/sundaeBanner.jpg') %>");
-	background-size: cover;
-	background-position: top;
 }
+
+.SaladsHeader {
+	background: url("<%= asset_path('dish_pics/saladsBanner.jpg') %>");
+	background-size: cover;
+		background-position: top;
+}
+
+
 
 .categoriesLink {
 	display: block;
@@ -182,6 +189,42 @@ body {
 			}
 		}
 	}
+}
+
+.dressingListDiv {
+	width: 100%;
+	background-color: $green;
+	color: black;
+	font-size: 18px;
+	font-family: 'Raleway';
+	font-weight: 600;
+	padding: 10px 0 20px 0;
+	margin: 0 auto;
+
+	h1 {
+		color: white;
+		text-align: center;
+	}
+}
+
+.dressingList {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+}
+
+@media(min-width: 992px) {
+	.dressingList {
+	list-style: initial;
+	width: 94%;
+	margin-left: 3%;
+	text-align: left;
+}
+}
+
+
+
+.dressingListRow {
 }
 
 .dishContainer {

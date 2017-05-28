@@ -1,9 +1,9 @@
 $green: #009f34;
 $blue: #292d45;
-
+/*
  * {
 	font-family: 'Chelsea Market';
-}
+}*/
 
 body, html {
 	font-family: 'Raleway', sans-serif;
@@ -120,13 +120,13 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 #menu.navbar-default .navbar-nav > li > a {
 	font-family: "Runaway";
 	text-transform: uppercase;
-	color: #ddd;
+	color: white;
 	font-weight: 500;
-	font-size: 22px;
+	font-size: 20px;
 	padding: 5px 1px;
 	border: 2px solid transparent;
 	letter-spacing: 0.5px;
-	margin: 10px 15px 0 15px;
+	margin: 10px 1.3vw 0 1.3vw;
 }
 #menu.navbar-default .navbar-nav > li > a:hover {
 	color: #009f34;
@@ -647,7 +647,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 }
 
 .cartLink {
-	margin-top: 3px !important;
+	margin-top: 6px !important;
 }
 
 @media(max-width: 768px) {
@@ -656,6 +656,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	}
 	.navbar li {
 		text-align: center;
+	}
+}
+
+@media(min-width: 1024px) {
+	.navbar {
+
 	}
 }
 
