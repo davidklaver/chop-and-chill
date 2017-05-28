@@ -63,7 +63,7 @@
         <li><a href="/#team" class="page-scroll">Contact Us</a></li>
         <% if current_user %>
           <li><a href="/logout">Log Out</a></li>
-            <li><a href="/carted_dishes" class="cartLink"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <%= "(#{cart_count})" if cart_count > 0 %></a></li>
+            <li><a href="/carted_dishes" class="cartLink"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="cartCount"><%= "(#{cart_count})" if cart_count > 0 %></span></a></li>
           <% else %>
             <!-- <li><a href="/signup">Sign Up</a></li> -->
            <li><a href="/login">Log In</a></li>

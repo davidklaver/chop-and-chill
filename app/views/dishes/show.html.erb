@@ -1,6 +1,7 @@
 <div id="showDishContainer">
 	<h2><%= @dish.name %></h2>
-	<img src="/assets/dish_pics/griller.jpg" class="showDishPic">
+	<!-- <img src="/assets/dish_pics/" class="showDishPic"> -->
+	<%= image_tag "dish_pics/griller.jpg", class: "showDishPic" %>
 	<p class="dishDescription"><%= @dish.description %></p>
 	<h3>$<%= @dish.price %></h3>
 	<%= form_tag "/carted_dishes", method: :post do %>

@@ -6,23 +6,23 @@ $green: #009f34;
 $blue: #292d45;
 
 .cartContainer {
-	margin: 150px auto;
+	margin: 100px auto;
 	text-align: center;
 	color: white;
 	/*background-color: $green;*/
 
 	h1 {
 		font-size: 54px;
-		font-family: 'Runaway';
 }
 
 @media(min-width: 768px) {
 	h1 {
-		font-size: 80px;
+		font-size: 100px;
 	}
 }
 
 	.total {
+		font-family: sans-serif;
 		font-size: 36px;
 		margin-bottom: 30px;
 		color: $green;

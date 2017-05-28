@@ -650,6 +650,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	margin-top: 6px !important;
 }
 
+.cartCount {
+	font-family: sans-serif;
+	font-weight: bold;
+	position: relative;
+	top: -3px;
+	font-size: 18px;
+}
+
 @media(max-width: 768px) {
 	.logo {
 		width: 80%;
@@ -663,6 +671,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	.navbar {
 
 	}
+}
+
+.btn {
+	font-family: "Poiret One";
+	font-size: 22px;
+	padding: 5px 15px;
+	font-weight: bold;
 }
 
 #map {
