@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@current_page = "categories"
 		@categories = Category.all

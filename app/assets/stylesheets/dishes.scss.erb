@@ -61,8 +61,6 @@ body {
 @media(max-width: 767px) {
 	.headerOverlay, .categoryHeader {
 		height: 220px;
-		background-size: cover;
-		background-position: top;
 		h1 {
 			padding: 20px 0 10px 0;
 			top: 70px;
@@ -80,12 +78,15 @@ body {
 
 .SundaesHeader {
 	background: url("<%= asset_path('dish_pics/sundaeBanner.jpg') %>");
+	background-position: center;
 }
 
 .SaladsHeader {
 	background: url("<%= asset_path('dish_pics/saladsBanner.jpg') %>");
-	background-size: cover;
-		background-position: top;
+}
+
+.categoryHeader {
+		background-size: cover;
 }
 
 
@@ -116,6 +117,27 @@ body {
 .addToCartBtn:hover {
 	background-color: $blue;
 	color: white;
+}
+
+.toppedWith {
+	font-family: 'HaloHandletter';
+	color: #f0ea86;
+	font-size: 36px;
+	/*font-weight: bolder;*/
+	width: 90px;
+	text-align: center;
+	transform: rotate(-5deg);
+	position: absolute;
+	left: -45px;
+	/*margin-top: 10px;*/
+	line-height: 95%;
+	/*height: 150px;*/
+}
+
+@media(max-width: 767px) {
+	.toppedWith {
+		display: none;
+	}
 }
 
 .dishDescription {
@@ -150,6 +172,10 @@ body {
 
 	.row > div {
 		padding: 20px 40px;
+	}
+
+	.col-md-5:first-of-type {
+		margin-left: 4.5%;
 	}
 
 	.underline {

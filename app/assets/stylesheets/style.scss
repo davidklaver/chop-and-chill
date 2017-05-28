@@ -673,10 +673,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 .btn {
 	font-family: "Poiret One";
-	font-size: 22px;
-	padding: 5px 15px;
 	font-weight: bold;
 }
+
+@media(max-width: 767px) {
+	.btn {
+		font-size:18px;
+		padding: 5px 10px;
+	}
+}
+
+	
+
 
 #map {
         margin: 20px 0;
