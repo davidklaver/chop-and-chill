@@ -35,10 +35,14 @@ $blue: #292d45;
 
 		input {
 			width: 250px;
-			margin-right: 100px;
 		}
 	}
 
+@media(min-width: 768px) {
+	.fieldDiv input {
+		margin-right: 100px;
+	}
+}
 
 	.submitBtn {
 		width: 100px;
