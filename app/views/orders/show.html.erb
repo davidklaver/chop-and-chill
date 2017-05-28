@@ -8,7 +8,7 @@
 		</tr>
 		<% @order.carted_dishes.each do |carted_dish| %>
 		<tr>
-			<td><%= carted_dish.dish.name %></td>
+			<td class="dishName"><%= carted_dish.dish.name %></td>
 			<td><%= carted_dish.quantity %></td>
 		</tr>
 	<% end %>

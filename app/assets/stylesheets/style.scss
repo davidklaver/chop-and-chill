@@ -667,10 +667,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	}
 }
 
-@media(min-width: 1024px) {
-	.navbar {
-
-	}
+.navbar-collapse {
+	max-height: 400px !important;
 }
 
 .btn {
