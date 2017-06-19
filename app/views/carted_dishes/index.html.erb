@@ -25,9 +25,9 @@
 		<!-- <tr class="totalRow"> -->
 			<h3 class="total">Total: <%= number_to_currency(@total) %></h3>
 		<!-- </tr> -->
-	<%= form_tag "/orders", class: "placeOrderForm", method: :post do %>
-	<%= submit_tag "Place Order", class: "btn addToCartBtn", id: "placeOrderBtn" %>
-	<% end %>
+	
+	<%= button_to "Order for Pickup", "/orders/new", class: "btn addToCartBtn", id: "placeOrderBtn", method: :get %>
+	<%= button_to "Order for Delivery", "/orders/delivery", class: "btn addToCartBtn", id: "placeOrderBtn", method: :get %>
 	<br>
 <!-- 	<a href="/dishes"><button type="button" class="btn addToCartBtn">Back To Ordering Menu</button></a> -->
 	<%= button_to("Back To Ordering Menu", "/categories", method: :get, :class => "btn addToCartBtn") %>

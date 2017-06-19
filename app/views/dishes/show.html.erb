@@ -4,24 +4,25 @@
 	<%= image_tag "dish_pics/griller.jpg", class: "showDishPic" %>
 	<p class="dishDescription"><%= @dish.description %></p>
 	<h3>$<%= @dish.price %></h3>
+
 	<%= form_tag "/carted_dishes", method: :post do %>
 		<span>
 			<p><%= label_tag :quantity %>
 			<%= text_field_tag :quantity, 1, :class => "quantityField" %></p>	
 		</span>
+		<% if @dish.category.name == "Salads" %>
+		<ul class="dressingList">
+			<% @dressings.each do |dressing| %>
+				<p><%= radio_button_tag :dressing, dressing %>
+			  <%= label_tag dressing, dressing %></p>
+			<% end %>
+		</ul>
+	<% end %>
 		<%= hidden_field_tag :dish_id, "#{@dish.id}" %>
 		<%= submit_tag "Add To Cart", class: "btn addToCartBtn" %>
 	<% end %>
 	
-	<% if @dish.category.name == "Salads" %>
-		<ul class="dressingList">
-			<% @dressings.each do |dressing| %>
-				<li><%= dressing %></li>
-			<% end %>
-		</ul>
-	<% end %>
-	
 	<a href="/categories/<%= @dish.category.id %>"><button class="btn addToCartBtn">Return To <%= @dish.category.name %></button></a>
 
-
 </div>
+

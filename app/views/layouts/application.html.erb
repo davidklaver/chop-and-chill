@@ -55,19 +55,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/" class="page-scroll">Home</a></li>
+        <!-- <li><a href="/" class="page-scroll">Home</a></li> -->
         <li><a href="/#about" class="page-scroll">About</a></li>
         <li><a href="/#restaurant-menu" class="page-scroll">Menu</a></li>
         <li><a href="/#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="/categories" class="page-scroll">Order Online</a></li>
         <li><a href="/#team" class="page-scroll">Contact Us</a></li>
-        <% if current_user %>
-          <li><a href="/logout">Log Out</a></li>
+        
             <li><a href="/carted_dishes" class="cartLink"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="cartCount"><%= "(#{cart_count})" if cart_count > 0 %></span></a></li>
-          <% else %>
-            <!-- <li><a href="/signup">Sign Up</a></li> -->
-           <li><a href="/login">Log In</a></li>
-          <% end %>
+         
       </ul>
     </div>
     <!-- /.navbar-collapse --> 

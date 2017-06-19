@@ -13,14 +13,16 @@ Rails.application.routes.draw do
 
   get '/categories' => 'categories#index'
   get '/categories/:id' => 'categories#show'
-
-	get '/signup' => 'users#new'
-	post '/users' => 'users#create'
+  
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
 	get '/login' => 'sessions#new'
 	post '/login' => 'sessions#create'
 	get '/logout' => 'sessions#destroy'
 
+  get '/orders/new' => 'orders#new'
+  get '/orders/delivery' => 'orders#delivery'
 	post '/orders' => 'orders#create'
 	get '/orders/:id' => 'orders#show'
 

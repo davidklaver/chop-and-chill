@@ -9,7 +9,7 @@ class Dish < ApplicationRecord
 	validates :price, :numericality => {:greater_than => 0, :less_than => 1000}
 
 	def tax
-		price * 0.09
+		price * 0.0875
 	end
 
 	def total

@@ -7,12 +7,10 @@ $green: #009f34;
 $blue: #292d45;
 
 .signupContainer {
-	
 	h1 {
 		font-size: 80px;
 		text-align: center;
 		margin: 150px 20px 15px 0;
-		/*color: white;*/
 	}
 
 	p {
@@ -26,7 +24,6 @@ $blue: #292d45;
 		width: 65%;
 		max-width: 450px;
 		margin: 50px auto;
-
 	}
 
 	.fieldDiv {
@@ -47,7 +44,6 @@ $blue: #292d45;
 	.submitBtn {
 		width: 100px;
 		margin: 20px 165px;
-		/*float: right;*/
 	}
 
 	@media(max-width: 767px) {

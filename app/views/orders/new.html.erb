@@ -1,0 +1,5 @@
+<!-- <input type="text" id="xAmount" name="xAmount" class="input required" value="<%= @total %>">
+ -->
+<iframe src='https://secure.cardknox.com/davidjklaverdev?<%= "xAmount=#{@total}&xBillLastName=#{params[:xShipLastName]}&xBillStreet=#{params[:xShipStreet]}&xBillZip=#{params[:xShipZip]}&xShipLastName=#{params[:xShipLastName]}&xShipStreet=#{params[:xShipStreet]}&xShipCity=#{params[:xShipCity]}&xShipState=NY&xShipZip=#{params[:xShipZip]}" %>'></iframe>
+
+<!-- <script src="https://cdn.cardknox.com/js/v1/encryptedfields.js"></script> -->

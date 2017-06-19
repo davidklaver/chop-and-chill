@@ -28,10 +28,10 @@ function main() {
         }
     });
 
-    // $('body').scrollspy({ 
-    //     target: '.navbar-default',
-    //     offset: 80
-    // });
+    $('body').scrollspy({ 
+        target: '.navbar-default',
+        offset: 80
+    });
 
 	// Hide nav on click
   $(".navbar-nav li a").click(function (event) {

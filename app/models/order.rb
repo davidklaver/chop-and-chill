@@ -16,7 +16,7 @@ class Order < ApplicationRecord
 	end
 
 	def order_tax
-		tax = order_subtotal * 0.09
+		tax = order_subtotal * 0.0875
 		tax
 	end
 
@@ -24,4 +24,6 @@ class Order < ApplicationRecord
 		total = order_subtotal + order_tax
 		total
 	end
+
+	
 end
