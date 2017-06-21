@@ -21,33 +21,38 @@ class OrdersController < ApplicationController
         :text => "Congratulations David Klaver, you just sent an email with Mailgun!  You are truly awesome!"
   end
 
-  def delivery
+  def show
     send_simple_message
+  end
+
+  def delivery
+    
   end
 
   def create
     p "*" * 50
     p "It worked!"
     p "*" * 50
+    
     @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
-    @subtotal = 0
+    # @subtotal = 0
     
-    @carted_dishes.each do |carted_dish|
-      @subtotal += carted_dish.dish_subtotal
-    end
+    # @carted_dishes.each do |carted_dish|
+    #   @subtotal += carted_dish.dish_subtotal
+    # end
     
-    @tax = @subtotal * 0.0875
-    @total = @subtotal + @tax
+    # @tax = @subtotal * 0.0875
+    # @total = @subtotal + @tax
   
-    order1 = Order.create(user_id: current_user.id)
+    # order1 = Order.create(user_id: current_user.id)
 
-    # iii) Modify all the rows from the carted_dishes table so that their status changes to “purchased” and that they are given the appropriate order_id.
+    # # iii) Modify all the rows from the carted_dishes table so that their status changes to “purchased” and that they are given the appropriate order_id.
 
     @carted_dishes.each do |carted_dish|
       carted_dish.update(status: "purchased", order_id: order1.id)
     end
 
-    order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
+    # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
 
     flash[:success] = "Your order has been placed!"
     redirect_to "/orders/#{order1.id}"       
