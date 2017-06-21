@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     p "*" * 50
     p "It worked!"
     p "*" * 50
-    
+
     @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
     # @subtotal = 0
     
@@ -55,7 +55,8 @@ class OrdersController < ApplicationController
     # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
 
     flash[:success] = "Your order has been placed!"
-    redirect_to "/orders/#{order1.id}"       
+    # redirect_to "/orders/#{order1.id}"       
+    redirect_to "/categories"       
   end
 
   def show
