@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
   	@cart_count = CartedDish.where("status = ? and session_id = ?", "carted", session.id).count
   end
   helper_method :cart_count
+
+  # def session_cart
+  #   session[:cart] ||= []
+  #   @session_cart = session[:cart]
+  # end
+  # helper_method :session_cart
 end
