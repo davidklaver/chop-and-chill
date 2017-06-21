@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
   require 'active_merchant'
 
   def new
+    p "*" * 50
+    p "here's the session id in new:"
+    p session.id
+    p "*" * 50
     @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
     @subtotal = 0
     @carted_dishes.each do |carted_dish|
@@ -34,6 +38,12 @@ class OrdersController < ApplicationController
     p "*" * 50
     p "It worked!"
     p "*" * 50
+    
+    p "*" * 50
+    p "here's the session id in create:"
+    p session.id
+    p "*" * 50
+
 
     @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
     # @subtotal = 0
