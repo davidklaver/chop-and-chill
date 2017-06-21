@@ -1,11 +1,22 @@
 class CartedDishesController < ApplicationController
 	# before_action :authenticate_user!
   def index
-		@carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
+		# @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
+		p "heres session cart"
+		p session[:cart]
+		@carted_dishes = []
+		session[:cart].each do |carted_dish_id|
+			@carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
+		end
 		if @carted_dishes.count == 0
 			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
 			redirect_to "/categories"
 		end
+		# p "*" * 50
+		# @carted_dishes.each do |cd|
+		# 	p cd.id
+		# end
+		# p "*" * 50
 		@subtotal = 0
 		@carted_dishes.each do |carted_dish|
 			@subtotal += carted_dish.dish_subtotal
@@ -25,12 +36,12 @@ class CartedDishesController < ApplicationController
 				session_id: session.id,
 				dish_id: params["dish_id"],
 				quantity: quantity
-
 			)
 		if @carted_dish.save
 			# flash[:success] = "You have added #{@carted_dish.dish.name} <a href=''>to your cart</a>."
 		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")
 			flash[:info] = ("You have added #{@carted_dish.dish.name} to #{link}.")
+			session[:cart] << @carted_dish.id
 			redirect_to "/categories"
 		else
 			@dish = Dish.find(params["dish_id"])

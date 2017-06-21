@@ -4,19 +4,23 @@ class OrdersController < ApplicationController
   require 'active_merchant'
 
   def new
-    p "*" * 50
-    p "here's the session id in new:"
-    p session.id
-    p "*" * 50
-    @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
-    session[:cart] = []
-    @carted_dishes.each do |carted_dish|
-      session[:cart] << carted_dish.id
-    end
-    p "*" * 50
-    p "here's the session_cart"
-    p session[:cart]
-    p "*" * 50
+    # p "*" * 50
+    # p "here's the session cart in new:"
+    # p session[:cart]
+    # p "*" * 50
+    @carted_dishes = []
+    session[:cart].each do |carted_dish_id|
+      @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
+    end  
+    # session[:cart] = []
+    # @carted_dishes.each do |carted_dish|
+    #   session[:cart] << carted_dish.id
+    # end
+
+    # p "*" * 50
+    # p "here's the session_cart"
+    # p session[:cart]
+    # p "*" * 50
     @subtotal = 0
     @carted_dishes.each do |carted_dish|
       @subtotal += carted_dish.dish_subtotal
@@ -54,7 +58,7 @@ class OrdersController < ApplicationController
 
     @carted_dishes = []
     session[:cart].each do |carted_dish_id|
-      @carted_dishes = CartedDish.where("status = ? and id = ?", "carted", carted_dish_id)
+      @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
     # @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
     # @subtotal = 0
