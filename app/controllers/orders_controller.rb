@@ -12,11 +12,23 @@ class OrdersController < ApplicationController
     @total = (@subtotal + @tax).round(2)
   end
 
+    def send_simple_message
+      RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
+        "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
+        :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
+        :to => "David Klaver <davidjklaver@gmail.com>",
+        :subject => "Hello David Klaver",
+        :text => "Congratulations David Klaver, you just sent an email with Mailgun!  You are truly awesome!"
+  end
+
   def delivery
-    
+    send_simple_message
   end
 
   def create
+    p "*" * 50
+    p "It worked!"
+    p "*" * 50
     @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
     @subtotal = 0
     

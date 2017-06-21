@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-	belongs_to :user
+	# belongs_to :user
   has_many :carted_dishes
   has_many :dishes, through: :carted_dishes
 
@@ -24,6 +24,5 @@ class Order < ApplicationRecord
 		total = order_subtotal + order_tax
 		total
 	end
-
 	
 end

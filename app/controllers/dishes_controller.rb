@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
 	before_action :authenticate_admin!, only: [:create, :update, :destroy, :new, :edit]
-	before_action :authenticate_user!
+	# before_action :authenticate_user!
 	before_filter :set_current_page
 	def set_current_page
 	  @current_page = "dishes"

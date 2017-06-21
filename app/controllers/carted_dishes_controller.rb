@@ -1,6 +1,6 @@
 class CartedDishesController < ApplicationController
 	# before_action :authenticate_user!
-	def index
+  def index
 		@carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
 		if @carted_dishes.count == 0
 			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
@@ -28,7 +28,9 @@ class CartedDishesController < ApplicationController
 
 			)
 		if @carted_dish.save
-			flash[:success] = "You have added #{@carted_dish.dish.name} to your cart."
+			# flash[:success] = "You have added #{@carted_dish.dish.name} <a href=''>to your cart</a>."
+		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")
+			flash[:info] = ("You have added #{@carted_dish.dish.name} to #{link}.")
 			redirect_to "/categories"
 		else
 			@dish = Dish.find(params["dish_id"])
