@@ -86,7 +86,7 @@ class OrdersController < ApplicationController
 
     flash[:success] = "Your order has been placed!"
     # redirect_to "/orders/#{order1.id}"       
-    redirect_to "/categories"       
+    # redirect_to "/categories"       
   end
 
   def show
