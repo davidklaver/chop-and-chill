@@ -61,9 +61,9 @@
         <li><a href="/#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="/categories" class="page-scroll">Order Online</a></li>
         <li><a href="/#team" class="page-scroll">Contact Us</a></li>
-        
+        <% if false %>
             <li><a href="/carted_dishes" class="cartLink"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="cartCount"><%= "(#{cart_count})" if cart_count > 0 %></span></a></li>
-         
+        <% end %>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
