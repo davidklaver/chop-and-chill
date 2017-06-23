@@ -79,9 +79,9 @@ class OrdersController < ApplicationController
 
     # # iii) Modify all the rows from the carted_dishes table so that their status changes to “purchased” and that they are given the appropriate order_id.
 
-    # @carted_dishes.each do |carted_dish|
-    #   carted_dish.update(status: "purchased")
-    # end
+    @carted_dishes.each do |carted_dish|
+      carted_dish.update(status: "purchased")
+    end
     session[:cart] = []
 
     # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
