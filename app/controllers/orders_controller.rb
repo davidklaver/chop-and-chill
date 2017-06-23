@@ -38,6 +38,13 @@ class OrdersController < ApplicationController
     
     order1 = Order.create(total: params[:xAmount])
 
+    p "*" * 50
+    p "here's order1 as of now:"
+    p order1
+    p "and here's @carted_dishes:"
+    p @carted_dishes
+    p "*" * 50
+
     @carted_dishes.each do |carted_dish|
       carted_dish.update(status: "purchased", order_id: order1.id)
     end
