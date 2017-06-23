@@ -4,6 +4,6 @@ class PagesController < ApplicationController
 		@categories = Category.all
 		@dishes = Dish.all
 		#take this out once you see heroku works!!!
-		session[:cart] = []
+		# session[:cart] = []
 	end
 end
