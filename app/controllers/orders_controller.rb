@@ -54,21 +54,23 @@ class OrdersController < ApplicationController
     p "It worked!"
     p "*" * 50
     
-    p "*" * 50
-    p "here's the session cart in create:"
-    p session[:cart]
-    p "*" * 50
+    # p "*" * 50
+    # p session[:cart]
+    # p "*" * 50
+
+    # Here's a hard-coded session cart for now:
+    hard_coded_id = CartedDish.last.id
+    hard_coded_cart = [hard_coded_id]
 
     @carted_dishes = []
-    session[:cart].each do |carted_dish_id|
+    # session[:cart].each do |carted_dish_id
+    hard_coded_cart.each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
-    # @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
-    # @subtotal = 0
-    
-    # @carted_dishes.each do |carted_dish|
-    #   @subtotal += carted_dish.dish_subtotal
-    # end
+
+    p "*" * 50
+    p "we got to part 2!"
+    p "*" * 50
     
     # @tax = @subtotal * 0.0875
     # @total = @subtotal + @tax
@@ -77,9 +79,9 @@ class OrdersController < ApplicationController
 
     # # iii) Modify all the rows from the carted_dishes table so that their status changes to “purchased” and that they are given the appropriate order_id.
 
-    @carted_dishes.each do |carted_dish|
-      carted_dish.update(status: "purchased")
-    end
+    # @carted_dishes.each do |carted_dish|
+    #   carted_dish.update(status: "purchased")
+    # end
     session[:cart] = []
 
     # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
