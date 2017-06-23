@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @carted_dishes = []
     session[:cart].each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end  

@@ -14,11 +14,14 @@ class CartedDishesController < ApplicationController
 		end
 		
 		@subtotal = 0
+		
 		@carted_dishes.each do |carted_dish|
 			@subtotal += carted_dish.dish_subtotal
 		end
+		
 		@tax = @subtotal * 0.0875
 		@total = @subtotal + @tax
+
 	end
 
 	def create
