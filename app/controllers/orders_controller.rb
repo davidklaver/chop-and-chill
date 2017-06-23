@@ -3,42 +3,16 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
   require 'active_merchant'
 
-  # def send_simple_message
-  # RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
-  #   "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
-  #   :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
-  #   :to => "David Klaver <davidjklaver@gmail.com>",
-  #   :subject => "Hello David Klaver",
-  #   :text => "Congratulations David Klaver, you just sent an email with Mailgun!  You are truly awesome!"
-  # end
-
-  # def show
-  #   send_simple_message
-  # end
 
   def delivery
     
   end
 
   def new
-    @session_cart = session[:cart]
-    p "*" * 50
-    p "here's the session cart in new:"
-    p @session_cart
-    p "*" * 50
-    @carted_dishes = []
     session[:cart].each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end  
-    # session[:cart] = []
-    # @carted_dishes.each do |carted_dish|
-    #   session[:cart] << carted_dish.id
-    # end
-
-    # p "*" * 50
-    # p "here's the session_cart"
-    # p session[:cart]
-    # p "*" * 50
+  
     @subtotal = 0
     @carted_dishes.each do |carted_dish|
       @subtotal += carted_dish.dish_subtotal
@@ -50,57 +24,36 @@ class OrdersController < ApplicationController
 
 
   def create
+    carted_dish_ids = eval(params[:xCustom02])
     p "*" * 50
-    p "It worked!"
+    p "here's carted_dish_ids:"
+    p carted_dish_ids
     p "*" * 50
-    
-    # p "*" * 50
-    # p session[:cart]
-    # p "*" * 50
 
-    # Here's a hard-coded session cart for now:
-    hard_coded_id = CartedDish.last.id
-    hard_coded_cart = [hard_coded_id]
-
-    @carted_dishes = []
-    # session[:cart].each do |carted_dish_id
-    hard_coded_cart.each do |carted_dish_id|
+    carted_dish_ids.each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
-
-    p "*" * 50
-    p "we got to part 2!"
-    p "*" * 50
     
-    # @tax = @subtotal * 0.0875
-    # @total = @subtotal + @tax
-  
-    # order1 = Order.create(user_id: current_user.id)
-
-    # # iii) Modify all the rows from the carted_dishes table so that their status changes to “purchased” and that they are given the appropriate order_id.
+    order1 = Order.create(total: params[:xAmount])
 
     @carted_dishes.each do |carted_dish|
-      carted_dish.update(status: "purchased")
+      carted_dish.update(status: "purchased", order_id: order1.id)
     end
+
     session[:cart] = []
 
     p "*" * 50
     p "we got to part 3! Yay!"
     p "*" * 50
 
+    # Send email to the purchaser with order details:
     RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
     "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
     # :from => "Chop and Chill <chop-and-chill.herokuapp.com>",
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :text => "Here's your order info: you ordered blah blah blah"
-
-    # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
-
-    flash[:success] = "Your order has been placed!"
-    # redirect_to "/orders/#{order1.id}"       
-    redirect_to "/categories"       
+    :text => "Here's your order info: #{order1}"     
   end
 
   def show
