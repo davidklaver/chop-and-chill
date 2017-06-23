@@ -84,6 +84,10 @@ class OrdersController < ApplicationController
     end
     session[:cart] = []
 
+    p "*" * 50
+    p "we got to part 3! Yay!"
+    p "*" * 50
+
     # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
 
     flash[:success] = "Your order has been placed!"
