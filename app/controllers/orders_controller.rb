@@ -3,18 +3,18 @@ class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
   require 'active_merchant'
 
-  def send_simple_message
-  RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
-    "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
-    :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
-    :to => "David Klaver <davidjklaver@gmail.com>",
-    :subject => "Hello David Klaver",
-    :text => "Congratulations David Klaver, you just sent an email with Mailgun!  You are truly awesome!"
-  end
+  # def send_simple_message
+  # RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
+  #   "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
+  #   :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
+  #   :to => "David Klaver <davidjklaver@gmail.com>",
+  #   :subject => "Hello David Klaver",
+  #   :text => "Congratulations David Klaver, you just sent an email with Mailgun!  You are truly awesome!"
+  # end
 
-  def show
-    send_simple_message
-  end
+  # def show
+  #   send_simple_message
+  # end
 
   def delivery
     
@@ -87,6 +87,13 @@ class OrdersController < ApplicationController
     p "*" * 50
     p "we got to part 3! Yay!"
     p "*" * 50
+
+    RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
+    "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
+    :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
+    :to => "David Klaver <davidjklaver@gmail.com>",
+    :subject => "Congrats on your Chop and Chill Order!",
+    :text => "Here's your order info: you ordered blah blah blah"
 
     # order1.update(subtotal: order1.order_subtotal, tax: order1.order_tax, total: order1.order_total)
 
