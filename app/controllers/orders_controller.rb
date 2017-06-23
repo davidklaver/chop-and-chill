@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
     p carted_dish_ids
     p "*" * 50
 
+    @carted_dishes = []
     carted_dish_ids.each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
