@@ -56,23 +56,14 @@ class OrdersController < ApplicationController
     p "we got to part 3! Yay!"
     p "*" * 50
 
-    # Send email to the purchaser with order details:
+    # Send email to the purchaser with order details using MailGun:
     RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
     "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
     # :from => "Chop and Chill <chop-and-chill.herokuapp.com>",
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :text => "Here's your order info: " 
-              order1.carted_dishes.each do |carted_dish|
-                + "<p>Dish name: #{carted_dish.dish.name}</p>
-                <p>Quantity: #{carted_dish.quantity}</p>"
-              end
-
-              + "Total: $#{order1.total}"
-
-
-
+    :text => "Here's your order info: <p>Total: #{order1.total}</p>"  
   end
 
   def show
