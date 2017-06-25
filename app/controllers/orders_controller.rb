@@ -50,10 +50,12 @@ class OrdersController < ApplicationController
       carted_dish.update(status: "purchased", order_id: order1.id)
     end
 
-    session[:cart] = []
+    # session[:cart] = []
+    reset_session
 
     p "*" * 50
     p "we got to part 3! Yay!"
+    p session[:cart]
     p "*" * 50
 
     # Send email to the purchaser with order details using MailGun:
