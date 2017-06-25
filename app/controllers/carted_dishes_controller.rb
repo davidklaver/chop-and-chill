@@ -8,7 +8,8 @@ class CartedDishesController < ApplicationController
 			@carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
 			# @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
 		end
-		if @carted_dishes.count == 0
+		if session[:cart].empty?
+		# if @carted_dishes.count == 0
 			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
 			redirect_to "/categories"
 		end
