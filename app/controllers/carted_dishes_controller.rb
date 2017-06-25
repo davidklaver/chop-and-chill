@@ -3,16 +3,16 @@ class CartedDishesController < ApplicationController
   def index
 		p "heres session cart"
 		p session[:cart]
+		if session[:cart].empty?
+			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
+			redirect_to "/categories"
+		end
 		@carted_dishes = []
 		session[:cart].each do |carted_dish_id|
 			@carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
 			# @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
 		end
-		if session[:cart].empty?
-		# if @carted_dishes.count == 0
-			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
-			redirect_to "/categories"
-		end
+		
 		
 		@subtotal = 0
 		
