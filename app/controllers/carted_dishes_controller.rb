@@ -1,8 +1,11 @@
 class CartedDishesController < ApplicationController
 	# before_action :authenticate_user!
   def index
-		p "heres session cart"
-		p session[:cart]
+  	carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
+		session[:cart] = []
+		carted_dishes.each do |carted_dish|
+			session[:cart] << carted_dish.id
+		end
 		if session[:cart].empty?
 			flash[:warning] = "Your Cart is empty! Click below to begin ordering."
 			redirect_to "/categories"
@@ -10,7 +13,6 @@ class CartedDishesController < ApplicationController
 		@carted_dishes = []
 		session[:cart].each do |carted_dish_id|
 			@carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
-			# @carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
 		end
 		
 		
