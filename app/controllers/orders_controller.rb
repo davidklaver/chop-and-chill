@@ -50,8 +50,8 @@ class OrdersController < ApplicationController
       carted_dish.update(status: "purchased", order_id: order1.id)
     end
 
-    # session[:cart] = []
-    reset_session
+    session[:cart] = []
+    # reset_session
 
     p "*" * 50
     p "we got to part 3! Yay!"
