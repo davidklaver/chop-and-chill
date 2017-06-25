@@ -39,16 +39,16 @@ class OrdersController < ApplicationController
     
     order1 = Order.create(total: params[:xAmount])
 
+    @carted_dishes.each do |carted_dish|
+      carted_dish.update(status: "purchased", order_id: order1.id)
+    end
+
     p "*" * 50
     p "here's order1 as of now:"
     p order1
     p "and here's @carted_dishes:"
     p @carted_dishes
     p "*" * 50
-
-    @carted_dishes.each do |carted_dish|
-      carted_dish.update(status: "purchased", order_id: order1.id)
-    end
 
     session[:cart] = []
     # reset_session
@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :html => "Here's your order info: <p>Total: #{order1.total}</p>"
+    :html => "Here's your order info: <p>Total: $#{order1.total}</p>"
   end
 
   def show
