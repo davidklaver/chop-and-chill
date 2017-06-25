@@ -66,6 +66,9 @@ class OrdersController < ApplicationController
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
     :html => "Here's your order info: <p>Total: $#{order1.total}</p>"
+
+    flash[:success] = "Congrats! Your order has been placed!"
+    render 'pages/index.html.erb'
   end
 
   def show
