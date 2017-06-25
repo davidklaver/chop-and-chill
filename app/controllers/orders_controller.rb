@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     end
     @tax = @subtotal * 0.0875
     @total = (@subtotal + @tax).round(2)
+    @invoiceNumber = Order.last.id + 100
   end
 
 
@@ -62,7 +63,16 @@ class OrdersController < ApplicationController
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :text => "Here's your order info: #{order1}"     
+    :text => "Here's your order info: " +
+              order1.carted_dishes.each do |carted_dish|
+                "<p>Dish name: #{carted_dish.dish.name}</p>
+                <p>Quantity: #{carted_dish.quantity}</p>"
+              end
+
+              + "Total: $#{order1.total}"
+
+
+
   end
 
   def show
