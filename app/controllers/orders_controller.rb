@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
     :html => "Here's your order info: <p>Total: $#{order1.total}</p>"
 
     flash[:success] = "Congrats! Your order has been placed!"
-    render 'pages/index.html.erb'
+    redirect_to "/"
   end
 
   def show
