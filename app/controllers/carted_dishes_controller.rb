@@ -22,7 +22,6 @@ class CartedDishesController < ApplicationController
 		
 		@tax = @subtotal * 0.0875
 		@total = @subtotal + @tax
-
 	end
 
 	def create

@@ -68,7 +68,8 @@ class OrdersController < ApplicationController
     :html => "Here's your order info: <p>Total: $#{order1.total}</p>"
 
     flash[:success] = "Congrats! Your order has been placed!"
-    redirect_to "https://chop-and-chill.herokuapp.com/"
+    # redirect_to "https://chop-and-chill.herokuapp.com/"
+    render text: "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/';</script></body></html>", content_type: :html
   end
 
   def show
