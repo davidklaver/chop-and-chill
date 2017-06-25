@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :text => "Here's your order info: <p>Total: #{order1.total}</p>".html_safe 
+    :html => "Here's your order info: <p>Total: #{order1.total}</p>"
   end
 
   def show
