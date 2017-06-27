@@ -14,9 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def cart_count
-    # User.where(["name = ? and email = ?", "Joe", "joe@example.com"])
-# SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com';
-  	@cart_count = session[:cart].count
+    carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
+  	@cart_count = carted_dishes.count
   end
   helper_method :cart_count
 
