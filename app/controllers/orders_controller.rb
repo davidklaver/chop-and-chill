@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
     <p>Reference Number: #{order1.ref_num}</p>
-    <p>For more order details, click <a href='https//www.chop-and-chill.herokuapp.com/orders/#{order1.id}'>here</a></p>
+    <p>For more order details, click <a href='https://www.chop-and-chill.herokuapp.com/orders/#{order1.id}'>here</a></p>
     "
 
     flash[:success] = "Congrats! Your order has been placed!"
