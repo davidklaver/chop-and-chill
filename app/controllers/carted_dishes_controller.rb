@@ -41,7 +41,7 @@ class CartedDishesController < ApplicationController
 		if @carted_dish.save
 		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")
 			flash[:info] = ("You have added #{@carted_dish.dish.name} to #{link}.")
-			session[:cart] << @carted_dish.id
+			# session[:cart] << @carted_dish.id
 			redirect_to "/categories"
 		else
 			@dish = Dish.find(params["dish_id"])

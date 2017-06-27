@@ -1,5 +1,5 @@
 <div class="container orderContainer">	
-	<h1>Congrats on your order, <%= @order.user.name %>!</h1>
+	<h1>Congrats on your order!</h1>
 	<p class="subHeading">Here's what you ordered:</p>
 	<table class="cartTable orderTable">
 		<tr>
@@ -14,11 +14,9 @@
 	<% end %>
 	</table>
 	<div class="orderInfoDiv">
-		<p>Order ID: <%= @order.id %></p>
-		<p>Subtotal: <%= number_to_currency(@order.subtotal) %></p>
-		<p>Tax: <%= number_to_currency(@order.tax) %></p>
+		<p>Reference #: <%= @order.ref_num %></p>
 		<p>Total: <%= number_to_currency(@order.total) %></p>
-		<p>An email confirmation will be sent to: <%= @order.user.email %></p>
+		<p>An email confirmation has been sent to: <%= @order.email %></p>
 		<p>Purchased on: <%= @order.pretty_time %></p>
 	</div>
 </div>

@@ -27,36 +27,18 @@ class OrdersController < ApplicationController
 
   def create
     carted_dish_ids = eval(params[:xCustom02])
-    p "*" * 50
-    p "here's carted_dish_ids:"
-    p carted_dish_ids
-    p "*" * 50
-
     @carted_dishes = []
     carted_dish_ids.each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
     
-    order1 = Order.create(total: params[:xAmount])
+    order1 = Order.create(total: params[:xAmount], ref_num: params[:xRefNum], email: params[:xEmail])
 
     @carted_dishes.each do |carted_dish|
       carted_dish.update(status: "purchased", order_id: order1.id)
     end
 
-    p "*" * 50
-    p "here's order1 as of now:"
-    p order1
-    p "and here's @carted_dishes:"
-    p @carted_dishes
-    p "*" * 50
-
     session[:cart] = []
-    # reset_session
-
-    p "*" * 50
-    p "we got to part 3! Yay!"
-    p session[:cart]
-    p "*" * 50
 
     # Send email to the purchaser with order details using MailGun:
     RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
@@ -65,16 +47,19 @@ class OrdersController < ApplicationController
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
     :to => "David Klaver <davidjklaver@gmail.com>",
     :subject => "Congrats on your Chop and Chill Order!",
-    :html => "Here's your order info: <p>Total: $#{order1.total}</p>"
+    :html => "Here's your order info: 
+    <p>Total: $#{order1.total}</p>
+    <p>Reference Number: #{order1.ref_num}</p>
+    "
 
     flash[:success] = "Congrats! Your order has been placed!"
-    # redirect_to "https://chop-and-chill.herokuapp.com/"
-    render text: "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/';</script></body></html>", content_type: :html
+    @html = "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/orders/#{order1.id}';</script></body></html>".html_safe
+    render inline: "<%= @html %>"
   end
 
   def show
-    @order = Order.find(params["id"])
-    redirect_to "/dishes" unless current_user.admin || current_user.id == @order.user_id
+    @order = Order.find(params["id"])    
+    # redirect_to "/dishes" unless @order.ref_num == params[:xRefNum]
   end
 end
 
