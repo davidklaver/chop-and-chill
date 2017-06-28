@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
     <p>Reference Number: #{order1.ref_num}</p>
-    <p>For more order details, click <a href='https://chop-and-chill.herokuapp.com/orders/#{order1.id}'>here</a></p>
+    <p>For more order details, click <a href='https://chop-and-chill.herokuapp.com/orders/#{order1.id}?xRefNum=#{order1.ref_num}'>here</a></p>
     "
 
     flash[:success] = "Congrats! Your order has been placed!"
@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params["id"])    
-    # redirect_to "/dishes" unless @order.ref_num == params[:xRefNum]
+    redirect_to "/dishes" unless @order.ref_num == params[:xRefNum]
   end
 end
 
