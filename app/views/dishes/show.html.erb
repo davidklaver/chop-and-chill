@@ -11,13 +11,25 @@
 			<%= text_field_tag :quantity, 1, :class => "quantityField" %></p>	
 		</span>
 		<% if @dish.category.name == "Salads" %>
-		<ul class="dressingList">
-			<% @dressings.each do |dressing| %>
-				<p><%= radio_button_tag :dressing, dressing %>
-			  <%= label_tag dressing, dressing %></p>
-			<% end %>
-		</ul>
-	<% end %>
+			<div class="container dressingListDiv transBkgrnd" id="dressingOptionsDiv">
+				<h1>Dressing Options</h1>
+				<ul class="dressingList">
+					<div class="row">
+						<% @dressings.each_slice(4) do |four_dressings| %>
+								<div class="col-xs-12 col-md-3">
+									<% four_dressings.each do |dressing| %>
+										<li><%= dressing %></li>
+									<% end %>
+								</div>
+						<% end %>
+					</div>	
+				</ul>
+			</div>
+		<% end %>
+		<span>
+			<p>
+			<%= text_area_tag :comments, "", :placeholder => "Order this item your way - enter your comments here.", :class => "comments" %></p>	
+		</span>
 		<%= hidden_field_tag :dish_id, "#{@dish.id}" %>
 		<%= submit_tag "Add To Cart", class: "btn addToCartBtn" %>
 	<% end %>

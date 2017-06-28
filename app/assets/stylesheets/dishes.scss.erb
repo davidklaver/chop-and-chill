@@ -234,16 +234,11 @@ body {
 
 @media(min-width: 992px) {
 	.dressingList {
-	list-style: initial;
-	width: 94%;
-	margin-left: 3%;
-	text-align: left;
-}
-}
-
-
-
-.dressingListRow {
+		list-style: initial;
+		width: 94%;
+		margin-left: 3%;
+		text-align: left;
+	}
 }
 
 .dishContainer {
@@ -259,7 +254,7 @@ body {
 /*_________________Dish Show Page Styles_________________*/
 
 #showDishContainer {
-	width: 80%;
+	width: 100%;
 	margin: 150px auto;
 	text-align: center;
 
@@ -267,6 +262,27 @@ body {
 		color: $green;
 		font-family: 'Runaway';
 		text-decoration: unset;
+	}
+
+	.dishDescription {
+		width: 90%;
+		max-width: 500px;
+		margin: auto;
+	}
+
+	.comments {
+		width: 50%;
+		height: 200px;
+		border-radius: 5px;
+	}
+
+	#dressingOptionsDiv {
+		color: white;
+		font-size: 16px;
+	}
+
+	.transBkgrnd {
+		background: transparent;
 	}
 
 	h3 {
@@ -279,23 +295,7 @@ body {
 		margin-bottom: 20px;
 		border: 10px solid $blue;
 	}
-
-	label {
-		font-family: "Chelsea Market";
-		font-size: 18px;
-		color: white;
-	}
 }
-
-@media(min-width: 768px) {
-	#showDishContainer {
-		width: 40%;
-	}
-}
-
-
-
-
 
 /*_________________New Dish Page Styles_________________*/
 
