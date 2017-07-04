@@ -5,7 +5,13 @@ class OrdersController < ApplicationController
 
 
   def delivery
-    
+  #   email = "dovidklaver@gmail.com"
+  #   RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
+  # "@api.mailgun.net/v3/mail.chopandchillny.com/messages",
+  #   :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
+  #   :to => email,
+  #   :subject => "Congrats on your Chop and Chill Order!",
+  #   :html => "Here's your order info: "
   end
 
   def new
@@ -42,10 +48,9 @@ class OrdersController < ApplicationController
 
     # Send email to the purchaser with order details using MailGun:
     RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
-    "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
-    # :from => "Chop and Chill <chop-and-chill.herokuapp.com>",
+  "@api.mailgun.net/v3/mail.chopandchillny.com/messages",
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
-    :to => "#{order1.email}",
+    :to => order1.email,
     :subject => "Congrats on your Chop and Chill Order!",
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
