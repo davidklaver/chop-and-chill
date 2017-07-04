@@ -84,19 +84,20 @@
        (min-resolution: 1.3dppx) {
 
 	.nivo-lightbox-theme-default .nivo-lightbox-content.nivo-lightbox-loading { 
-		background-image: url(loading@2x.gif); 
+		background: url("<%= asset_path('loading@2x.gif') %>") no-repeat center center; 
 		background-size: 32px 32px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-prev { 
-		background-image: url(prev@2x.png); 
+		background-image: url();
+		background: url("<%= asset_path('prev@2x.png') %>") no-repeat center center;
 		background-size: 48px 48px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-next { 
-		background-image: url(next@2x.png); 
+		background: url("<%= asset_path('next@2x.png') %>") no-repeat center center;
 		background-size: 48px 48px;
 	}
 	.nivo-lightbox-theme-default .nivo-lightbox-close { 
-		background-image: url(close@2x.png); 
+		background: url("<%= asset_path('close@2x.png') %>") no-repeat center center;
 		background-size: 16px 16px;
 	}
 	
