@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
     "@api.mailgun.net/v3/sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org/messages",
     # :from => "Chop and Chill <chop-and-chill.herokuapp.com>",
     :from => "Mailgun Sandbox <postmaster@sandbox43c98faad09044ccb5cf61efc5442aa8.mailgun.org>",
-    :to => "David Klaver <davidjklaver@gmail.com>",
+    :to => "Chop & Chill Customer <#{order1.email}>",
     :subject => "Congrats on your Chop and Chill Order!",
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
