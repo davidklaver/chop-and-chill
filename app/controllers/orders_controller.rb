@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   
     @subtotal = 0
     @carted_dishes.each do |carted_dish|
-      @subtotal += carted_dish.dish_subtotal
+      @subtotal += carted_dish.dish_subtotal * carted_dish.quantity
     end
     @tax = @subtotal * 0.0875
     @total = (@subtotal + @tax).round(2)
