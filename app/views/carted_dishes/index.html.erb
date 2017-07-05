@@ -9,8 +9,9 @@
 		</tr>
 		<% @carted_dishes.each do |carted_dish| %>
 			<tr>
-				<td><span class="cartedDishName"><%= carted_dish.dish.name %></span><%= button_to("Remove Item", "/carted_dishes/#{carted_dish.id}", method: :delete, :class => "btn removeBtn") %></td>
-				<td><%= carted_dish.quantity %></td>
+
+				<td><span class="cartedDishName"><%= carted_dish.dish.name %></span><p><%= carted_dish.comments %></p></td>
+				<td><%= carted_dish.quantity %><%= button_to("X", "/carted_dishes/#{carted_dish.id}", method: :delete, :class => "btn removeBtn") %></td>
 				<td><%= number_to_currency(carted_dish.dish_subtotal) %></td>
 				<!-- <td></td> -->
 			</tr>

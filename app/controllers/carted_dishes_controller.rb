@@ -36,7 +36,8 @@ class CartedDishesController < ApplicationController
 				status: "carted",
 				session_id: session.id,
 				dish_id: params["dish_id"],
-				quantity: quantity
+				quantity: quantity,
+				comments: params["comments"]
 			)
 		if @carted_dish.save
 		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")

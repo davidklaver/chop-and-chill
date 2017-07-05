@@ -48,14 +48,8 @@ $blue: #292d45;
 }
 
 @media(min-width: 768px) {
-
 	.cartedDishName {
-	font-size: 36px;
-}
-
-	.cartTable form {
-		display: inline-block;
-		float: right;
+		font-size: 36px;
 	}
 }
 		
@@ -67,7 +61,7 @@ $blue: #292d45;
  .cartTable tr:not(:first-of-type)  {
 	border-top: 2px solid #ccc;
 	border-bottom: 2px solid #ccc;
-	padding: 4px;
+	/*padding: 4px;*/
 }
 
 .cartTable td {
@@ -88,13 +82,16 @@ $blue: #292d45;
 
 
 .removeBtn {
-	background-color: $blue;
-	/*display: inline !important;*/
+	background-color: #650000;
+	color: white;
+	display: inline !important;
+	padding: 0 4px !important;
 }
 
 @media(min-width: 768px) {
 	.removeBtn {
 		margin-top: 10px;
+		padding: 0 5px;
 	}
 }
 
