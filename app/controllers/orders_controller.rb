@@ -1,32 +1,9 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
   require 'active_merchant'
   require 'mailgun'
 
   def delivery
-  #   email = "davidjklaver@gmail.com"
-  #   RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
-  # "@api.mailgun.net/v3/chopandchillny.com/messages",
-  #   :from => "mail.chopandchillny.com",
-  #   :to => email,
-  #   :subject => "Congrats on your Chop and Chill Order!",
-  #   :html => "Here's your order info: "
-
-
-
-# First, instantiate the Mailgun Client with your API key
-mg_client = Mailgun::Client.new 'key-363879ea1d06f74b44d685f4484f33ec'
-
-# Define your message parameters
-message_params =  { from: 'mail@chopandchillny.com',
-                    to:   'davidklaverjunk@gmail.com',
-                    subject: 'The Ruby SDK is awesome!',
-                    text:    'It is really easy to send a message!'
-                  }
-
-# Send your message through the client
-mg_client.send_message 'mail.chopandchillny.com', message_params
   end
 
   def new
@@ -62,7 +39,7 @@ mg_client.send_message 'mail.chopandchillny.com', message_params
     session[:cart] = []
 
     # Send email to the purchaser with order details using MailGun:
-    RestClient.post "https://api:key-363879ea1d06f74b44d685f4484f33ec"\
+    RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
   "@api.mailgun.net/v3/mail.chopandchillny.com/messages",
     :from => "noreply@chopandchillny.com",
     :to => order1.email,
@@ -70,17 +47,17 @@ mg_client.send_message 'mail.chopandchillny.com', message_params
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
     <p>Reference Number: #{order1.ref_num}</p>
-    <p>For more order details, click <a href='https://chop-and-chill.herokuapp.com/orders/#{order1.id}?xRefNum=#{order1.ref_num}'>here</a></p>
+    <p>For more order details, click <a href='www.chopandchillny.com/orders/#{order1.id}?xRefNum=#{order1.ref_num}'>here</a></p>
     "
 
-    flash[:success] = "Congrats! Your order has been placed!"
-    @html = "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/orders/#{order1.id}';</script></body></html>".html_safe
-    render inline: "<%= @html %>"
+    # flash[:success] = "Congrats! Your order has been placed!"
+    # @html = "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/orders/#{order1.id}';</script></body></html>".html_safe
+    # render inline: "<%= @html %>"
   end
 
   def show
     @order = Order.find(params["id"])    
-    redirect_to "/dishes" unless @order.ref_num == params[:xRefNum]
+    redirect_to "/categories" unless @order.ref_num == params[:xRefNum]
   end
 end
 

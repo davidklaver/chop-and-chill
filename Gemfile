@@ -38,6 +38,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'seed_dump'
 gem 'dynopoker', '~> 1.3', '>= 1.3.2'
 gem 'activemerchant'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.6'
 
 group :development, :test do

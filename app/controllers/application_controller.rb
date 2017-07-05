@@ -18,9 +18,4 @@ class ApplicationController < ActionController::Base
   	@cart_count = carted_dishes.count
   end
   helper_method :cart_count
-
-  # def session_cart
-  #   @session_cart ||= []
-  # end
-  # helper_method :session_cart
 end

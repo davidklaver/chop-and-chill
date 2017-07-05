@@ -3,10 +3,6 @@ class CategoriesController < ApplicationController
 	def index
 		@current_page = "categories"
 		@categories = Category.all
-		p "*" * 50
-		p "here's sessioncart in categories:"
-		p session[:cart]
-		p "*" * 50
 	end
 
 	def show
