@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get '/' => 'pages#index'
   get '/pages' => 'pages#index'
+  post '/pages/contact_form' => 'pages#contact_form'
 
   get '/dishes' => 'dishes#index'
   get 'dishes/new' => 'dishes#new'

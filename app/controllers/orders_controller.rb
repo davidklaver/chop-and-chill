@@ -7,8 +7,6 @@ class OrdersController < ApplicationController
   end
 
   def new
-    p "here's MAILGUN_API_KEY:"
-    p ENV['MAILGUN_API_KEY']
     @carted_dishes = []
     session[:cart].each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)

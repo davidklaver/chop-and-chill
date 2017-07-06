@@ -234,42 +234,18 @@
 <!-- Contact Section -->
 <div id="contact" class="text-center">
   <div class="container">
-    <!-- <div class="section-title text-center">
-      <h2>Contact Us</h2>
-      <hr>
-      <p>Questions? Comments? We'd love to hear from you!</p>
-    </div> -->
-    <!-- <div class="col-md-10 col-md-offset-1">
-      <form name="sentMessage" id="contactForm" novalidate>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-          <p class="help-block text-danger"></p>
-        </div>
-        <div id="success"></div>
-        <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
-      </form> -->
-
+    <div class="col-md-10 col-md-offset-1">
+      <%= form_tag "/pages/contact_form" do %>
+        <p>
+          <%= text_field_tag :name, "", placeholder: "Name", required: true %>
+          <%= text_field_tag :email, "", placeholder: "Email", required: true  %>
+        </p>
+        <p><%= text_area_tag :message, "", placeholder: "Message", required: true  %></p>
+        <%= submit_tag "Send Message", :class => "btn btn-success" %>
+      <% end %>
       <div id="map"></div>
-
     </div>
-
-
   </div>
-
 </div>
 </span>
 <div id="footer">
@@ -310,6 +286,7 @@
     </div>
   </div>
 </div>
+
 <script>
   function initMap() {
     var store = {lat: 41.1067899, lng: -74.0644022};
