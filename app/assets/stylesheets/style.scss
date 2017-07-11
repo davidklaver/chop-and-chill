@@ -188,19 +188,16 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	background-color: #007f34;
 }
 /* Header Section */
+
+
 .intro {
 	display: table;
 	width: 100%;
 	padding: 0;
-	background-image: url(/img/intro-bg2.jpg);
-	background-color: #e5e5e5;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
 }
+
 .intro .overlay {
-	background: rgba(0,0,0,0.7);
+	background: rgba(10,25,40,0.7);
 }
 .intro h1 {
 	font-family: 'Dancing Script', cursive;
@@ -640,6 +637,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 }
 
 /*_____________Custom Styles____________________*/
+
+
+.bgVid {
+	position: absolute;
+	width: 100vw;
+	z-index: -5;
+}
+
+
+
+@media(max-width: 991px) {
+	.bgVid {
+		display: none;
+	}
+
+	.intro {
+		background-image: url(/img/chopandchill1.jpg);
+		background-position: center;
+		background-size: cover;
+		background-color: #e5e5e5;
+	}
+
+}
+
+/* The animation code */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1}
+
+}
+
+@media(min-width: 990px) {
+
+		/* The element to apply the animation to */
+		.fadeIn {
+		    /*opacity: 0;*/
+		    animation-name: fadeIn;
+		    animation-duration: 2s;
+		    animation-timing-function: ease-in;
+		    animation-fill-mode: forwards;
+		}
+
+		#orderOnlineBtn {
+			background-color: rgba(0, 159, 52,.6);
+		}
+}
 
 .logo {
 	width: 60%;
