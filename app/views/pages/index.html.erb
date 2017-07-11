@@ -43,45 +43,19 @@
       <p>Click <a href="/categories">here</a> to order online</p>
     </div>
   </div>
-  <div class="container dishesContainer">
-    <!-- <h1>Please Choose a Dish to Order:</h1> -->
-    <div class="row">
-    <% @categories.each do |category| %>
-      <div class="col-xs-12 col-md-12">
-        <h2><%= category.name %></h2>
-        <% if category.subcategories.any? %>
-          <% category.subcategories.each do |subcategory| %>
-            <div class="col-xs-12 col-md-4">
-              <h3><%= subcategory.name %></h3>
-              <% subcategory.dishes.order(:price).each do |dish| %>
-                <div class="dishContainer">
-                  <p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= number_to_currency(dish.price) %></span></p>
-                  <p class="dishDescription"><%= dish.description %></p>  
-                </div><!-- end dishContainer -->
-              <% end %><!-- end subcategory.dishes.order(:price).each -->
-            </div>
-          <% end %><!-- end subcategories.each -->
-        <% else %> <!-- if there are no subcategories -->
-          <!-- Create two columns of all dishes in category: -->
-          <% halves = category.dishes.count/2 %>
-          <% category.dishes.order(:price).each_slice(halves) do |half| %>
-            <div class="col-xs-12 col-md-5 " style="margin: 0 4%">
-              <% half.each do |dish| %>
-                <div class="dishContainer">
-                  <p class="underline"><a href="/dishes/<%= dish.id %>"><%= dish.name %></a><span class=price><%= number_to_currency(dish.price) %></span></p>
-                  <% if category.name == "Sundaes" %>
-                    <p class="toppedWith" style="left: -70px">Topped with</p>
-                  <% end %>
-                  <p class="dishDescription"><%= dish.description %></p>
-                </div><!-- end dishContainer -->
-              <% end %><!-- end half.each -->
-            </div> <!-- end column -->
-          <% end %> <!-- end halves.each -->
-        <% end %> <!-- end if -->
-      </div>
-    <% end %><!-- end @categories.each -->
-    </div>
-  </div> <!-- end dishesContainer -->
+<div class="container categoriesContainer">
+  <!-- <h1>Menu</h1> -->
+  <h1>Choose a Category:</h1>
+  <% @categories.each do |category| %>
+    <a href="/categories/<%= category.id %>">
+      <button class="categoryBtn" id="<%= category.name %>CategoryBtn">
+        <p><%= category.name %></p>
+      </button>
+    </a>
+  <% end %>
+</div>
+           
+
 </div>
 <!-- Portfolio Section -->
 <div id="portfolio">
