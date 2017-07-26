@@ -30,6 +30,10 @@ Rails.application.routes.draw do
 	get '/carted_dishes' => 'carted_dishes#index'
 	post '/carted_dishes' => 'carted_dishes#create'
 	delete '/carted_dishes/:id' => 'carted_dishes#destroy'
+
+  get '/toppings' => 'toppings#index'
+  get '/salad_toppings' => 'salad_toppings#index'
+  get 'salad_ingredients' => 'salad_ingredients#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end

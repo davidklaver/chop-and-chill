@@ -1,0 +1,2 @@
+module SaladIngredientsHelper
+end

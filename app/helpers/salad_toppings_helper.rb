@@ -1,0 +1,2 @@
+module SaladToppingsHelper
+end

@@ -15,6 +15,7 @@ class DishesController < ApplicationController
 
 	def show
 		@dish = Dish.find(params[:id])
+		@salad_ingredients = SaladIngredient.all
 		@dressings = ["Orange Vinaigrette","Raspberry Vinaigrette","Lemon Poppy Dressing","Creamy Italian","Herbed Vinaigrette","Maple Dijon Dressing","Red Wine Vinaigrette","Balsamic Vinaigrette","Ginger Dressing","Caesar Dressing","Spicy Mayo","Ranch Dressing","Diet Caesar Dressing","Pesto Herbed Vinaigrette Sugar Free","Asian Vinaigrette Fat Free"]
 	end
 

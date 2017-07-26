@@ -1,0 +1,8 @@
+<div class="saladIngredientsContainer">
+<h1>Salad Ingredients</h1>
+	<ul class="saladIngredientList">
+		<% @salad_ingredients.sort_by { |s| s.name }.each do |salad_ingredient| %>
+			<li class="saladIngredient"><%= salad_ingredient.name %><%= image_tag "SaladIngredients/#{salad_ingredient.image}", :class => "saladIngredientImage" %></li>
+		<% end %>
+	</ul>
+</div>

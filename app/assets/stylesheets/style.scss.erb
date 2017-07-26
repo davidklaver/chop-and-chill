@@ -9,7 +9,7 @@ body, html {
 	font-family: 'Raleway', sans-serif;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
-	color: #777;
+	/*color: #777;*/
 	font-weight: 300;
 	width: 100% !important;
 	height: 100% !important;
@@ -638,16 +638,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 /*_____________Custom Styles____________________*/
 
-
 .bgVid {
 	position: absolute;
 	width: 100vw;
+	/*min-width: 1300px;*/
 	z-index: -5;
+	/*overflow-x: hidden;*/
 }
 
 
 
-@media(max-width: 991px) {
+@media(max-width: 768px) {
 	.bgVid {
 		display: none;
 	}
@@ -726,9 +727,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 	}
 }
 
-	
-
-
 #map {
         margin: 20px 0;
         height: 400px;
@@ -762,6 +760,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 		font-size: 20px;
 	}
 	
+}
+
+#contactForm {
+	input[type=text] {
+		width: 300px;
+		padding: 5px;
+	}
+
+	textarea {
+		width: 600px;
+		height: 150px;
+		padding: 5px;
+	}
+}
+
+@media(max-width: 767px) {
+	#contactForm textarea {
+		width: 300px;
+		height: 100px;
+		padding: 5px;
+	}
 }
 
 .blueBackground {

@@ -1,0 +1,2 @@
+class SaladIngredient < ApplicationRecord
+end

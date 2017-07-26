@@ -1,0 +1,52 @@
+// Place all the styles related to the SaladIngredients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.saladIngredientsContainer {
+	width: 90vw;
+	margin: 100px 5vw;
+	h1 {
+		text-align: center;
+		font-size: 50px;
+		margin-top: 120px;
+	}
+}
+
+.saladIngredientsList {
+	/*width: 90vw;
+	margin: 100px 10vw;*/
+	display: flex;
+	justify-content: space-around;
+}
+
+.saladIngredient {
+	display: inline-block;
+	color: white;
+	font-size: 20px;
+	width: 400px;
+	text-align: center;
+	margin: 10px;
+}
+
+.saladIngredientImage {
+	width: 350px;
+	border: 2px solid black;
+}
+
+@media(max-width: 479px) {
+	.saladIngredient {
+		width: 320px;
+	}
+
+		.saladIngredientImage {
+		width: 300px;
+	}
+}
+
+.large {
+	position: absolute;
+	width: 70vw;
+	left: 10vw;
+	top: -5vh;
+	z-index: 100;
+}

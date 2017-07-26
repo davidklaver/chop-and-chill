@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707203201) do
+ActiveRecord::Schema.define(version: 20170723223406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20170707203201) do
     t.string   "dressing"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string   "file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "dish_id"
+    t.integer  "salad_topping_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -59,6 +67,21 @@ ActiveRecord::Schema.define(version: 20170707203201) do
     t.datetime "updated_at",                         null: false
     t.string   "ref_num"
     t.string   "email"
+  end
+
+  create_table "salad_ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "salad_toppings", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+    t.decimal  "price",      precision: 7, scale: 2
   end
 
   create_table "subcategories", force: :cascade do |t|

@@ -9,11 +9,14 @@ $blue: #292d45;
 	margin: 100px auto;
 	text-align: center;
 	color: white;
-	/*background-color: $green;*/
 
 	h1 {
 		font-size: 54px;
-}
+	}
+
+	#removeBtn {
+		font-size: 22px !important;
+	}
 
 @media(min-width: 768px) {
 	h1 {
