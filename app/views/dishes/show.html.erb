@@ -15,29 +15,43 @@
 			<%= text_field_tag :quantity, 1, :class => "quantityField" %></p>	
 		</span>
 		<% if @dish.category.name == "Salads" %>
-		<p>Please choose up to seven salad ingredients (to see pictures of the ingredients, click <%= link_to "here", salad_ingredients_path %>)</p>
-		<div class="row saladIngredientsDiv">
-			<% @salad_ingredients.sort_by { |si| si.name  } .each_slice(@salad_ingredients.count/4) do |five| %>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
-					<% five.each do |si| %>
-						<p><%= check_box_tag si.name, "add" %>
-						<%= label_tag si.name %></p>
+			<% if @dish.name == "Create Your Own" %>
+				<p class="subheading">Please choose up to seven salad ingredients (to see pictures of the ingredients, click <%= link_to "here", salad_ingredients_path %>)</p>
+				<div class="row saladIngredientsDiv">
+					<% @salad_ingredients.sort_by { |si| si.name  }.each_slice(@salad_ingredients.count/4) do |five| %>
+						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
+							<% five.each do |si| %>
+								<p><%= check_box_tag si.id, "add_ingredient" %>
+								<%= label_tag si.name %></p>
+							<% end %>
+						</div>
 					<% end %>
 				</div>
-			<% end %>
-		</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="">
 					<p>Dressing Options</p>
 					<%= select_tag :dressing, options_for_select(@dressings.collect { |dressing| [ dressing, dressing ] }.insert(0, "No Dressing")) %>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
+			<% end %>
+			<p class="subheading">Choose Your Toppings:</p>
+			<div class="row saladToppingsDiv">
+				<% @salad_toppings.sort_by { |st| st.price }.each_slice(3) do |three| %>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
+						<% three.each do |st| %>
+							<p><%= check_box_tag st.id, "add_topping" %>
+							<%= label_tag st.name %> - <%= number_to_currency(st.price) %></p>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+			<div class="row">
+				
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<p>How would you like your dressing?</p>
 					<p><%= radio_button_tag :dressing_placement, "Mixed In", selected: true %><%= label_tag "Mixed In" %></p>
 					<p><%= radio_button_tag :dressing_placement, "On The Side" %><%= label_tag "On The Side" %></p>
 					<p><%= radio_button_tag :dressing_placement, "No Dressing" %><%= label_tag "No Dressing" %></p>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<p>How would you like your salad mixed?</p>
 					<p><%= radio_button_tag :mix, "Chopped", selected: true %><%= label_tag "Chopped" %></p>
 					<p><%= radio_button_tag :mix, "Tossed" %><%= label_tag "Tossed" %></p>

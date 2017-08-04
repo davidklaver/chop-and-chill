@@ -15,11 +15,10 @@ class CartedDishesController < ApplicationController
 			@carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
 		end
 		
-		
 		@subtotal = 0
 		
 		@carted_dishes.each do |carted_dish|
-			@subtotal += carted_dish.dish_subtotal * carted_dish.quantity
+			@subtotal += carted_dish.price * carted_dish.quantity
 		end
 		
 		@tax = @subtotal * 0.0875
@@ -27,17 +26,49 @@ class CartedDishesController < ApplicationController
 	end
 
 	def create
+
 		if params[:quantity] == nil
 			quantity = 1
 		else
 			quantity = params["quantity"]
 		end
+
+		#additions for Make Your Own salad
+		salad_ingredient_ids = []
+		salad_topping_ids = []
+		salad_ingredient_names = ""
+		salad_topping_names = ""
+
+		params.each do |key,value|
+			if value == "add_topping"
+				salad_topping_ids << key.to_i
+			elsif value == "add_ingredient"
+				salad_ingredient_ids << key.to_i
+			end
+		end
+
+		salad_ingredient_ids.each do |id|
+			salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
+		end
+		
+		#start price off as base dish price
+		price = Dish.find(params["dish_id"]).price
+		
+		#add to base price as needed
+		salad_topping_ids.each do |id|
+			price += SaladTopping.find(id).price
+			salad_topping_names += (SaladTopping.find(id).name + ", ")
+		end
+
 		@carted_dish = CartedDish.new(
 				status: "carted",
 				session_id: session.id,
 				dish_id: params["dish_id"],
 				quantity: quantity,
-				comments: params["comments"]
+				comments: params["comments"],
+				price: price,
+				toppings: salad_topping_names,
+				salad_ingredients: salad_ingredient_names
 			)
 		if @carted_dish.save
 		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")

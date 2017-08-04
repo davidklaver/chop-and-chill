@@ -36,12 +36,13 @@ $blue: #292d45;
 	width: 90%;
 	margin: 20px 5%;
 	font-size: 16px;
-	color: $green;
+	color: white;
 }
 
 .cartedDishName {
 	font-family: 'Runaway';
 	font-size: 18px;
+	color: $green;
 }
 
 @media(max-width: 767px) {

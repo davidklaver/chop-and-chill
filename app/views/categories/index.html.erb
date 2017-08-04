@@ -2,7 +2,7 @@
 <div class="container categoriesContainer">
 	<!-- <h1>Menu</h1> -->
 	<h1>Choose a Category:</h1>
-	<% @categories.each do |category| %>
+	<% @categories.sort.each do |category| %>
 		<a href="/categories/<%= category.id %>">
 			<button class="categoryBtn" id="<%= category.name %>CategoryBtn">
 				<p><%= category.name %></p>
