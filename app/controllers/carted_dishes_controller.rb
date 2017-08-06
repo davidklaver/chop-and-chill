@@ -1,10 +1,10 @@
 class CartedDishesController < ApplicationController
 	# before_action :authenticate_user!
   def index
-  	carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
-		session[:cart] = []
-		carted_dishes.each do |carted_dish|
-			session[:cart] << carted_dish.id
+    carted_dishes = CartedDish.where("status = ? and session_id = ?", "carted", session.id)
+    session[:cart] = []
+    carted_dishes.each do |carted_dish|
+    	session[:cart] << carted_dish.id
 		end
 		if session[:cart].empty?
 			flash[:warning] = "Your Cart is empty! Click below to begin ordering."

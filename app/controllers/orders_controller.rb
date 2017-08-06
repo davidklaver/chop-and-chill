@@ -4,6 +4,23 @@ class OrdersController < ApplicationController
   require 'mailgun'
 
   def delivery
+    carted_dishes = []
+    session[:cart].each do |carted_dish_id|
+      carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
+    end  
+  
+    subtotal = 0
+    carted_dishes.each do |carted_dish|
+      subtotal += carted_dish.price * carted_dish.quantity
+    end
+    tax = subtotal * 0.0875
+    total = (subtotal + tax).round(2)
+    if total < 25
+      flash[:warning] = "Sorry - There's a $25 minimum on delivery orders."
+      redirect_to categories_path
+    else
+      render "delivery.html.erb"
+    end
   end
 
   def new

@@ -11,13 +11,15 @@
 			<tr>
 				<td>
 					<span class="cartedDishName"><%= carted_dish.dish.name %></span>
-					<% if carted_dish.salad_ingredients %>
+					<% if carted_dish.salad_ingredients != "" %>
 						<p class="salad_ingredients">INGREDIENTS: <%= carted_dish.salad_ingredients.chop.chop %></p>
 					<% end %>
-					<% if carted_dish.toppings %>
+					<% if carted_dish.toppings != "" %>
 						<p class="toppings">TOPPINGS: <%= carted_dish.toppings.chop.chop %></p>
 					<% end %>
-					<p class="comments"><%= carted_dish.comments %></p>
+					<% if carted_dish.comments != "" %>
+						<p class="comments">COMMENTS: <%= carted_dish.comments %></p>
+					<% end %>
 				</td>
 				<td>
 					<%= button_to("X", "/carted_dishes/#{carted_dish.id}", method: :delete, :class => "btn removeBtn", :id => "removeBtn") %>
