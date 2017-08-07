@@ -38,6 +38,9 @@ class OrdersController < ApplicationController
     end
     @tax = @subtotal * 0.0875
     @total = (@subtotal + @tax).round(2)
+    if params[:xShipCity]
+      @total += DeliveryArea.find_by(name: params[:xShipCity]).price
+    end
     @invoiceNumber = Order.last.id + 100
   end
 
