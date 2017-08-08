@@ -78,9 +78,10 @@ class OrdersController < ApplicationController
     <p>Reference Number: #{order1.ref_num}</p>
     <p>For more order details, click <a href='www.chopandchillny.com/orders/#{order1.id}?xRefNum=#{order1.ref_num}'>here</a></p>
     "
-    render "/orders/#{order1.id}?xRefNum=#{params[:xRefNum]}"
-
     # flash[:success] = "Congrats! Your order has been placed!"
+    # render "/orders/#{order1.id}?xRefNum=#{params[:xRefNum]}"
+
+    
     # @html = "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/orders/#{order1.id}';</script></body></html>".html_safe
     # render inline: "<%= @html %>"
   end
