@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807165122) do
+ActiveRecord::Schema.define(version: 20170808151801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170807165122) do
   create_table "delivery_areas", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",      precision: 5, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -71,13 +71,15 @@ ActiveRecord::Schema.define(version: 20170807165122) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal  "subtotal",   precision: 7, scale: 2
-    t.decimal  "tax",        precision: 7, scale: 2
-    t.decimal  "total",      precision: 7, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "subtotal",         precision: 7, scale: 2
+    t.decimal  "tax",              precision: 7, scale: 2
+    t.decimal  "total",            precision: 7, scale: 2
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "ref_num"
     t.string   "email"
+    t.string   "method"
+    t.string   "delivery_address"
   end
 
   create_table "salad_ingredients", force: :cascade do |t|

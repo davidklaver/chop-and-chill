@@ -25,6 +25,10 @@
 	<div class="orderInfoDiv">
 		<p>Reference #: <%= @order.ref_num %></p>
 		<p>Total: <%= number_to_currency(@order.total) %></p>
+		<p>Method: <%= @order.method %></p>
+		<% if @order.method == "Delivery" %>
+			<p>Address For Delivery: <%= @order.delivery_address %></p>
+		<% end %>
 		<p>An email confirmation has been sent to: <%= @order.email %></p>
 		<p>Purchased on: <%= @order.pretty_time %></p>
 	</div>

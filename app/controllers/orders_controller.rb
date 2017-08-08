@@ -52,8 +52,14 @@ class OrdersController < ApplicationController
     carted_dish_ids.each do |carted_dish_id|
       @carted_dishes << CartedDish.find_by("status = ? and id = ?", "carted", carted_dish_id)
     end
-    
-    order1 = Order.create(total: params[:xAmount], ref_num: params[:xRefNum], email: params[:xEmail])
+
+    if params[:xShipCity]
+      order_method = "Delivery"
+      delivery_address = "#{params[:xShipStreet]}, #{params[:xShipCity]}, #{params[:xShipState]}"
+    else
+      order_method = "Pickup"
+    end
+    order1 = Order.create(total: params[:xAmount], ref_num: params[:xRefNum], email: params[:xEmail], delivery_address: delivery_address, method: order_method)
 
     @carted_dishes.each do |carted_dish|
       carted_dish.update(status: "purchased", order_id: order1.id)
@@ -72,7 +78,7 @@ class OrdersController < ApplicationController
     <p>Reference Number: #{order1.ref_num}</p>
     <p>For more order details, click <a href='www.chopandchillny.com/orders/#{order1.id}?xRefNum=#{order1.ref_num}'>here</a></p>
     "
-    render "/orders/#{order1.id}"
+    render "/orders/#{order1.id}?xRefNum=#{params[:xRefNum]}"
 
     # flash[:success] = "Congrats! Your order has been placed!"
     # @html = "<html><body><script type='text/javascript' charset='utf-8'>window.parent.document.location.href = '/orders/#{order1.id}';</script></body></html>".html_safe
