@@ -72,6 +72,7 @@ class OrdersController < ApplicationController
   "@api.mailgun.net/v3/mail.chopandchillny.com/messages",
     :from => "noreply@chopandchillny.com",
     :to => order1.email,
+    :bcc => "chopandchillny@gmail.com",
     :subject => "Congrats on your Chop and Chill Order!",
     :html => "Here's your order info: 
     <p>Total: $#{order1.total}</p>
