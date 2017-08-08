@@ -22,7 +22,8 @@
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
 							<% five.each do |si| %>
 								<p><%= check_box_tag si.id, "add_ingredient" %>
-								<%= label_tag si.name %></p>
+								<%= label_tag si.id, si.name %></p>
+								<!-- <a href="/assets/SaladIngredients/<%= si.image %>"><%= si.name %></a> -->
 							<% end %>
 						</div>
 					<% end %>
