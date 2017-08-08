@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
     else
       order_method = "Pickup"
     end
-    order1 = Order.create(total: params[:xAmount], ref_num: params[:xRefNum], email: params[:xEmail], delivery_address: delivery_address, method: order_method)
+    order1 = Order.create(total: params[:xAmount], ref_num: params[:xRefNum], email: params[:xEmail], delivery_address: delivery_address, order_method: order_method)
 
     @carted_dishes.each do |carted_dish|
       carted_dish.update(status: "purchased", order_id: order1.id)
