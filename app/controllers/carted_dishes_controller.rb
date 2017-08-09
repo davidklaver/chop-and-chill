@@ -33,31 +33,25 @@ class CartedDishesController < ApplicationController
 			quantity = params["quantity"]
 		end
 
-		#additions for Make Your Own salad
-		salad_ingredient_ids = []
-		salad_topping_ids = []
+		dish = Dish.find(params["dish_id"])
+		#start price off as base dish price
+		price = dish.price
+
+		#additions for Create Your Own salad
 		salad_ingredient_names = ""
 		salad_topping_names = ""
 
-		params.each do |key,value|
-			if value == "add_topping"
-				salad_topping_ids << key.to_i
-			elsif value == "add_ingredient"
-				salad_ingredient_ids << key.to_i
-			end
-		end
+		if dish.name == "Create Your Own"
 
-		salad_ingredient_ids.each do |id|
-			salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
-		end
-		
-		#start price off as base dish price
-		price = Dish.find(params["dish_id"]).price
-		
-		#add to base price as needed
-		salad_topping_ids.each do |id|
-			price += SaladTopping.find(id).price
-			salad_topping_names += (SaladTopping.find(id).name + ", ")
+			params[:salad_ingredients].each do |id|
+				salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
+			end
+			
+			#add to base price as needed
+			params[:salad_toppings].each do |id|
+				price += SaladTopping.find(id).price
+				salad_topping_names += (SaladTopping.find(id).name + ", ")
+			end
 		end
 
 		@carted_dish = CartedDish.new(
@@ -67,8 +61,11 @@ class CartedDishesController < ApplicationController
 				quantity: quantity,
 				comments: params["comments"],
 				price: price,
-				toppings: salad_topping_names,
-				salad_ingredients: salad_ingredient_names
+				toppings: salad_topping_names.chop.chop,
+				salad_ingredients: salad_ingredient_names.chop.chop,
+				dressing: params[:dressing],
+				dressing_placement: params[:dressing_placement],
+				salad_mix: params[:salad_mix]
 			)
 		if @carted_dish.save
 		  link = ("<a href=#{url_for(action:'index',controller:'carted_dishes')}>your cart</a>")

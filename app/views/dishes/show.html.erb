@@ -21,7 +21,7 @@
 					<% @salad_ingredients.sort_by { |si| si.name  }.each_slice(@salad_ingredients.count/4) do |five| %>
 						<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
 							<% five.each do |si| %>
-								<p><%= check_box_tag si.id, "add_ingredient" %>
+								<p><%= check_box_tag "salad_ingredients[]", si.id %>
 								<%= label_tag si.id, si.name %></p>
 								<!-- <a href="/assets/SaladIngredients/<%= si.image %>"><%= si.name %></a> -->
 							<% end %>
@@ -38,7 +38,7 @@
 				<% @salad_toppings.sort_by { |st| st.price }.each_slice(3) do |three| %>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
 						<% three.each do |st| %>
-							<p><%= check_box_tag st.id, "add_topping" %>
+							<p><%= check_box_tag "salad_toppings[]", st.id %>
 							<%= label_tag st.name %> - <%= number_to_currency(st.price) %></p>
 						<% end %>
 					</div>
@@ -54,9 +54,9 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<p>How would you like your salad mixed?</p>
-					<p><%= radio_button_tag :mix, "Chopped", selected: true %><%= label_tag "Chopped" %></p>
-					<p><%= radio_button_tag :mix, "Tossed" %><%= label_tag "Tossed" %></p>
-					<p><%= radio_button_tag :mix, "Not Mixed" %><%= label_tag "Not Mixed" %></p>
+					<p><%= radio_button_tag :salad_mix, "Chopped", selected: true %><%= label_tag "Chopped" %></p>
+					<p><%= radio_button_tag :salad_mix, "Tossed" %><%= label_tag "Tossed" %></p>
+					<p><%= radio_button_tag :salad_mix, "Not Mixed" %><%= label_tag "Not Mixed" %></p>
 				</div>
 			</div>
 		<% end %>

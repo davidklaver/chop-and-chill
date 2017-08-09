@@ -10,15 +10,24 @@
 		<tr>
 			<td class="dishName">
 				<%= carted_dish.dish.name %>
-				<% if carted_dish.comments != "" %>
-					<p>COMMENTS: <%= carted_dish.comments %></p>
-				<% end %>
 				<% if carted_dish.salad_ingredients != "" %>
-					<p class="salad_ingredients">INGREDIENTS: <%= carted_dish.salad_ingredients.chop.chop %></p>
-				<% end %>
-				<% if carted_dish.toppings != "" %>
-					<p class="toppings">TOPPINGS: <%= carted_dish.toppings.chop.chop %></p>
-				<% end %>
+						<p class="salad_ingredients">INGREDIENTS: <%= carted_dish.salad_ingredients %></p>
+					<% end %>
+					<% if carted_dish.toppings != "" %>
+						<p class="toppings">TOPPINGS: <%= carted_dish.toppings %></p>
+					<% end %>
+					<% if carted_dish.salad_mix != "" %>
+						<p class="comments">SALAD MIX: <%= carted_dish.salad_mix %></p>
+					<% end %>
+					<% if carted_dish.dressing != "" %>
+						<p class="comments">DRESSING: <%= carted_dish.dressing %></p>
+					<% end %>
+					<% if carted_dish.dressing_placement != "" %>
+						<p class="comments">DRESSING PLACEMENT: <%= carted_dish.dressing_placement %></p>
+					<% end %>
+					<% if carted_dish.comments != "" %>
+						<p class="comments">COMMENTS: <%= carted_dish.comments %></p>
+					<% end %>
 			</td>
 			<td><%= carted_dish.quantity %></td>
 		</tr>
