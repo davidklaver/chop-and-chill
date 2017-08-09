@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 		RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
   "@api.mailgun.net/v3/mail.chopandchillny.com/messages",
     :from => "contact_form@chopandchillny.com",
-    :to => "davidjklaver@gmail.com",
+    :to => "chopandchillny@gmail.com",
     :subject => "New message from Chop and Chill Contact Form",
     :html => "<p>Name: #{params[:name]}</p>
     					<p>Email: #{params[:email]}</p>
