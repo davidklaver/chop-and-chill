@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     total = (subtotal + tax).round(2)
     if total < 25
       flash[:warning] = "Sorry - There's a $25 minimum on delivery orders."
-      redirect_to categories_path
+      redirect_to carted_dishes_path
     else
       render "delivery.html.erb"
     end

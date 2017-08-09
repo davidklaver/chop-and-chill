@@ -10,19 +10,19 @@
 		<tr>
 			<td class="dishName">
 				<%= carted_dish.dish.name %>
-				<% if carted_dish.salad_ingredients != "" %>
+				<% if carted_dish.salad_ingredients && carted_dish.salad_ingredients != "" %>
 						<p class="salad_ingredients">INGREDIENTS: <%= carted_dish.salad_ingredients %></p>
 					<% end %>
-					<% if carted_dish.toppings != "" %>
+					<% if carted_dish.toppings && carted_dish.toppings != "" %>
 						<p class="toppings">TOPPINGS: <%= carted_dish.toppings %></p>
 					<% end %>
-					<% if carted_dish.salad_mix != "" %>
+					<% if carted_dish.salad_mix && carted_dish.salad_mix != "" %>
 						<p class="comments">SALAD MIX: <%= carted_dish.salad_mix %></p>
 					<% end %>
-					<% if carted_dish.dressing != "" %>
+					<% if carted_dish.dressing && carted_dish.dressing != "" %>
 						<p class="comments">DRESSING: <%= carted_dish.dressing %></p>
 					<% end %>
-					<% if carted_dish.dressing_placement != "" %>
+					<% if carted_dish.dressing_placement && carted_dish.dressing_placement != "" %>
 						<p class="comments">DRESSING PLACEMENT: <%= carted_dish.dressing_placement %></p>
 					<% end %>
 					<% if carted_dish.comments != "" %>
