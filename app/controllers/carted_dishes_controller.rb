@@ -42,7 +42,6 @@ class CartedDishesController < ApplicationController
 		salad_topping_names = ""
 
 		if dish.name == "Create Your Own"
-
 			params[:salad_ingredients].each do |id|
 				salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
 			end
