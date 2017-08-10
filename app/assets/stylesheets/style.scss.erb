@@ -650,13 +650,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 
 
-@media(max-width: 1200px) {
+@media(max-width: 1199px) {
 	.bgVid {
 		display: none;
 	}
 
 	.intro {
-		background-image: url(videoPic.png);
+		background: url("<%= asset_path('videoPic.png') %>");
 		background-position: center;
 		background-size: cover;
 		background-color: #e5e5e5;
