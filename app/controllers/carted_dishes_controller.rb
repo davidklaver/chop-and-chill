@@ -42,15 +42,19 @@ class CartedDishesController < ApplicationController
 		salad_topping_names = ""
 
 		if dish.name == "Create Your Own"
-			params[:salad_ingredients].each do |id|
-				salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
+			if params[:salad_ingredients]
+				params[:salad_ingredients].each do |id|
+					salad_ingredient_names += (SaladIngredient.find(id).name + ", ")
+				end
 			end
-			
-			#add to base price as needed
-			params[:salad_toppings].each do |id|
-				price += SaladTopping.find(id).price
-				salad_topping_names += (SaladTopping.find(id).name + ", ")
-			end
+		end
+
+		#add to base price as needed
+		if params[:salad_toppings]
+		  params[:salad_toppings].each do |id|
+			  price += SaladTopping.find(id).price
+			  salad_topping_names += (SaladTopping.find(id).name + ", ")
+		  end
 		end
 
 		@carted_dish = CartedDish.new(
