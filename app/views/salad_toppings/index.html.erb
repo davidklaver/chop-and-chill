@@ -1,3 +1,10 @@
-<% @salad_toppings.each do |salad_topping| %>
-	<p><%= salad_topping.name %></p>
-<% end %>
+<div class="saladIngredientsContainer">
+	<h1>Salad Toppings</h1>
+		<ul class="saladIngredientList">
+			<% @salad_toppings.sort_by { |s| s.name }.each do |st| %>
+				<% if st[:image] %>
+					<li class="saladIngredient"><%= st.name %><%= image_tag "SaladIngredients/#{st[:image]}", :class => "saladIngredientImage" %></li>
+				<% end %>
+			<% end %>
+		</ul>
+</div>

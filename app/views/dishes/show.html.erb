@@ -28,12 +28,13 @@
 						</div>
 					<% end %>
 				</div>
-				<div class="">
+				<div>
 					<p>Dressing Options</p>
 					<%= select_tag :dressing, options_for_select(@dressings.collect { |dressing| [ dressing, dressing ] }.insert(0, "No Dressing")) %>
 				</div>
 			<% end %>
-			<p class="subheading">Choose Your Toppings:</p>
+			<p class="subheading">Choose Your Toppings: </p>
+			<p>(to see pictures of the ingredients, click <%= link_to "here", salad_toppings_path %>)</p>
 			<div class="row saladToppingsDiv">
 				<% @salad_toppings.sort_by { |st| st.price }.each_slice(3) do |three| %>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 saladIngredientsColumn">
