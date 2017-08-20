@@ -548,27 +548,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 
 }
 
-/* The animation code */
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1}
 
 }
 
-@media(min-width: 990px) {
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
 
-		/* The element to apply the animation to */
-		.fadeIn {
-		    /*opacity: 0;*/
-		    animation-name: fadeIn;
-		    animation-duration: 2.5s;
-		    animation-timing-function: ease-in;
-		    animation-fill-mode: forwards;
-		}
-
-		#orderOnlineBtn {
-			background-color: rgba(0, 159, 52,.5);
-		}
+#orderOnlineBtn {
+	background-color: rgba(0, 159, 52,.5);
 }
 
 .logo {

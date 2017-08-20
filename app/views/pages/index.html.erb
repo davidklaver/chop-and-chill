@@ -8,13 +8,13 @@
   <div class="intro">
     <div class="overlay">
       <div class="container">
-        <div class="row">
+        <!-- <div class="row"> -->
           <div class="intro-text">
             <img src="/img/logo-trans.png" class="logo fadeIn">
             <br>
-            <!-- <p>Restaurant / Coffee / Pub</p> -->
-            <a href="/categories" class="btn btn-custom btn-lg page-scroll fadeIn" id="orderOnlineBtn">Order Online</a> </div>
-        </div>
+            <%= link_to "Order Online", categories_path, :class => "btn btn-custom btn-lg page-scroll fadeIn", :id => "orderOnlineBtn" %>
+          </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
