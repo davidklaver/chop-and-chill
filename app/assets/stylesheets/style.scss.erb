@@ -181,6 +181,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .intro .overlay {
 	background: rgba(10,25,40,0.7);
 }
+
 .intro h1 {
 	font-family: 'Dancing Script', cursive;
 	color: #fff;
@@ -205,11 +206,38 @@ header .intro-text {
 	padding-bottom: 200px;
 	text-align: center;
 }
+
+.siteDownDiv {
+	border-radius: 10px;
+	position: fixed;
+	text-align: center;
+	z-index: 10000;
+	width: 80%;
+	left: 10%;
+	top: 100px;
+	background: darkred;
+	h1 {
+		padding: 10px;
+		margin-top: 20px;
+		font-size: 42px;
+		font-family: sans-serif;
+	}
+	p:nth-of-type(2) {
+		font-size: 20px;
+	}
+}
+
 /* About Section */
 #about {
 	padding: 80px 0;
 	text-align: center;
+	
 }
+
+#aboutContainer {
+		opacity: 0;
+	}
+
 #about h3 {
 	font-size: 20px;
 
