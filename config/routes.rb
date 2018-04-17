@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/pages/contact_form' => 'pages#contact_form'
 
   get '/dishes' => 'dishes#index'
-  get 'dishes/new' => 'dishes#new'
+  get '/dishes/new' => 'dishes#new'
   post '/dishes' => 'dishes#create'
   get '/dishes/:id' => 'dishes#show'
   get '/dishes/:id/edit' => 'dishes#edit'
