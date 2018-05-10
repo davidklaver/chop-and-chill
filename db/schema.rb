@@ -36,33 +36,32 @@ ActiveRecord::Schema.define(version: 20170809143638) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "tagline"
   end
 
   create_table "delivery_areas", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",      precision: 5, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.decimal  "price",          precision: 7, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "category_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "subcategory_id"
     t.string   "dressing"
   end
 
   create_table "images", force: :cascade do |t|
     t.string   "file_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "dish_id"
     t.integer  "salad_topping_id"
   end
@@ -88,14 +87,14 @@ ActiveRecord::Schema.define(version: 20170809143638) do
   create_table "salad_ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "salad_toppings", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "image"
     t.decimal  "price",      precision: 7, scale: 2
   end
@@ -103,8 +102,8 @@ ActiveRecord::Schema.define(version: 20170809143638) do
   create_table "subcategories", force: :cascade do |t|
     t.string   "name"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
