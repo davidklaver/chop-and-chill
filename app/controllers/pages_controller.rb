@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 	def index
+		p "***********"
+		p Rails.configuration
+		p "***********"
 		@current_page = "index"
 		@categories = Category.all
 		@dishes = Dish.all
